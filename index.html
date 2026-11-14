@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#16352B">
 <meta property="og:title" content="Qual a idade do seu metabolismo?">
 <meta property="og:description" content="Teste gratuito de 2 minutos. Resultado na hora.">
-<meta property="og:image" content="img/og.jpg">
+<meta property="og:image" content="/img/og.jpg">
 <script>
 /* ===== CONFIG (só mexer aqui) ===== */
 window.M30 = {
@@ -19,12 +19,12 @@ window.M30 = {
 };
 </script>
 <style>
-@font-face{font-family:M;src:url(fonts/montserrat-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:M;src:url(fonts/montserrat-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
-@font-face{font-family:M;src:url(fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
-@font-face{font-family:M;src:url(fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;font-display:swap}
-@font-face{font-family:M;src:url(fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;font-display:swap}
-@font-face{font-family:C;src:url(fonts/Caveat-600n-latin.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:C;src:url(/fonts/Caveat-600n-latin.woff2) format('woff2');font-weight:600;font-display:swap}
 :root{--g:#16352B;--g2:#24503F;--t:#FF6A3D;--t2:#E8542A;--cr:#FFF6EC;--y:#FFD36E;--mt:#CDEBD8;--tx:#1d2a24;--mu:#5d6b64;--ln:#ead9c6;--w:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--cr);color:var(--tx);font-family:M,system-ui,sans-serif;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased}
@@ -156,7 +156,7 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
 <section class="scr on" data-s="capa">
   <p class="hand" style="text-align:center">teste gratuito · 2 minutos</p>
   <h1 style="text-align:center;margin-top:4px">Qual a idade do <span class="hl">seu metabolismo</span>?</h1>
-  <div class="hero-photo"><img src="img/1181686.jpg" alt="Mulher sorrindo"><span class="tag">Idade real: 47</span><span class="tag2">Metabolismo: ?</span></div>
+  <div class="hero-photo"><img src="/img/1181686.jpg" alt="Mulher sorrindo"><span class="tag">Idade real: 47</span><span class="tag2">Metabolismo: ?</span></div>
   <p class="lead" style="text-align:center;margin-bottom:20px">Responda 20 perguntas rápidas e descubra se o seu metabolismo está <b>mais velho que você</b> e o que fazer nos próximos 7 dias.</p>
   <button class="btn" data-next>Fazer o teste agora →</button>
   <div class="trust"><span>✓ Gratuito</span><span>✓ Resultado na hora</span><span>✓ Sem cadastro</span></div>
@@ -436,7 +436,7 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
     <p class="hand">apresentando</p>
     <h2 style="font-size:27px">Metabolismo Reativado · Desafio Jejum 5 em 7</h2>
     <p>Um plano de 7 dias, passo a passo, pra você <b>desinchar, controlar a vontade de doce e destravar a rotina</b> com um jejum que respeita a sua idade. Sem remédio, sem shake e sem passar o dia com fome.</p>
-    <div class="mock"><img src="img/mockup.png" alt="Guia Metabolismo Reativado" loading="lazy"></div>
+    <div class="mock"><img src="/img/mockup.png" alt="Guia Metabolismo Reativado" loading="lazy"></div>
   </div>
 
   <div class="sec">
@@ -524,7 +524,7 @@ function runLoading(){
   var p=0, li=$$('#steps li'); li.forEach(function(l){l.classList.remove('ok')});
   var t=setInterval(function(){p+=2; $('#ring').style.setProperty('--p',p); $('#ringN').textContent=p+'%';
     li.forEach(function(l,i){ if(p>=(i+1)*19)l.classList.add('ok') });
-    if(p>=100){clearInterval(t); setTimeout(function(){buildResult(); next()},400)} },70);
+    if(p>=100){clearInterval(t); setTimeout(irResultado,400)} },70);
 }
 var PERFIS={
  trav:{n:'Metabolismo Travado',d:'Seu corpo aprendeu a se defender: depois de tantas dietas, ele gasta menos e guarda mais. Por isso comer pouco não resolve e o peso volta.',s:['A dieta funciona cada vez menos','O peso volta (efeito sanfona)','Sensação de que o corpo "empacou"'],p:'O 5 em 7 alterna dias de jejum com 2 dias de pausa justamente pra não acionar o modo defesa que as dietas radicais acionam.'},
@@ -532,7 +532,7 @@ var PERFIS={
  doce:{n:'Metabolismo Viciado em Doce',d:'Seu corpo vive numa montanha-russa: come carboidrato, dá sono, vem a fome de novo e a vontade de doce manda no seu dia.',s:['Sono depois do almoço','Vontade de doce à tarde ou à noite','Fome que volta em 2 horas'],p:'O desafio troca a montanha-russa por janelas fixas e uma quebra de jejum com proteína, que segura a fome e reduz a vontade de doce ao longo da semana.'},
  estr:{n:'Metabolismo Estressado',d:'Estresse alto, sono ruim e cansaço deixam o corpo em alerta, e um corpo em alerta segura gordura, principalmente na barriga.',s:['Sono leve ou curto','Cansaço que o café não resolve','Barriga que cresce nas fases de estresse'],p:'O 5 em 7 começa com uma janela leve que coincide com o sono, e cada dia tem uma tarefa curta de rotina pra baixar o estresse junto com o jejum.'}
 };
-function buildResult(){
+function buildResult(semPx){
   var h=+alt.value/100, w=+peso.value, imc=w/(h*h), d=ans.dims;
   var tot=d.trav+d.inch+d.doce+d.estr; /* 0..36 */
   var off=Math.round(tot/36*13)+(imc>=30?3:imc>=25?1:0)+((ans.idade||45)>=40?1:0);
@@ -552,8 +552,24 @@ function buildResult(){
   var f=ans.keys.fome, jan = f===0?'comer das 8h às 16h (você tem mais fome de manhã)':f===2?'comer das 12h às 20h (sua fome aperta à noite)':'comer das 10h às 18h';
   $('#janela').textContent='Sua janela sugerida no dia de 16 h: '+jan+'. O guia ajusta os outros dias.';
   ans.meta=meta; ans.perfil=order[0];
-  px('ViewContent',{content_name:'Metabolismo Reativado',value:+C.PRECO,currency:'BRL'});
+  if(!semPx)px('ViewContent',{content_name:'Metabolismo Reativado',value:+C.PRECO,currency:'BRL'});
 }
+/* resultado em URL própria: /resultado/<perfil>/ (rewrite no _redirects) */
+var SLUG={trav:'travado',inch:'inchado',doce:'viciado-em-doce',estr:'estressado'};
+function irResultado(){
+  buildResult(true);
+  try{sessionStorage.setItem('mr_quiz',JSON.stringify({ans:ans,alt:alt.value,peso:peso.value}))}catch(e){}
+  location.href='/resultado/'+SLUG[ans.perfil]+'/'+location.search;
+}
+(function(){
+  var m=location.pathname.match(/^\/resultado\/([a-z-]+)/); if(!m)return;
+  var st=null; try{st=JSON.parse(sessionStorage.getItem('mr_quiz'))}catch(e){}
+  if(!st){location.replace('/'+location.search);return}
+  ans=st.ans; alt.value=st.alt; peso.value=st.peso;
+  buildResult();
+  var ri=scr.findIndex(function(x){return x.dataset.s==='resultado'});
+  show(ri,false); $('#bar').style.width='100%';
+})();
 /* checkout */
 function checkoutUrl(){
   if(!C.CHECKOUT_URL)return '';
