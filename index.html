@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qual a idade do seu metabolismo? · Metabolismo Reativado</title>
+<meta name="description" content="Teste gratuito de 2 minutos: descubra a idade do seu metabolismo e receba seu plano do Desafio de Jejum 5 em 7.">
+<meta name="theme-color" content="#16352B">
+<meta property="og:title" content="Qual a idade do seu metabolismo?">
+<meta property="og:description" content="Teste gratuito de 2 minutos. Resultado na hora.">
+<meta property="og:image" content="img/og.jpg">
+<script>
+/* ===== CONFIG (só mexer aqui) ===== */
+window.M30 = {
+  CHECKOUT_URL: "",          // link do checkout Cakto do produto principal (R$ 27). Vazio = botão mostra aviso.
+  META_PIXEL_ID: "",         // ID do pixel/conjunto de dados do Meta. Vazio = pixel desligado.
+  PRECO: "27",
+  PRECO_DE: "97"
+};
+</script>
+<style>
+@font-face{font-family:M;src:url(fonts/montserrat-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:M;src:url(fonts/montserrat-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:M;src:url(fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:M;src:url(fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:M;src:url(fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:C;src:url(fonts/Caveat-600n-latin.woff2) format('woff2');font-weight:600;font-display:swap}
+:root{--g:#16352B;--g2:#24503F;--t:#FF6A3D;--t2:#E8542A;--cr:#FFF6EC;--y:#FFD36E;--mt:#CDEBD8;--tx:#1d2a24;--mu:#5d6b64;--ln:#ead9c6;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cr);color:var(--tx);font-family:M,system-ui,sans-serif;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:520px;margin:0 auto;padding:0 18px}
+.top{position:sticky;top:0;z-index:20;background:var(--cr);padding:12px 0 8px}
+.top .row{display:flex;align-items:center;gap:12px}
+.back{width:34px;height:34px;border-radius:50%;border:0;background:transparent;font-size:22px;color:var(--g);visibility:hidden}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;color:var(--g);font-size:15px;letter-spacing:-.2px;flex:1;justify-content:center}
+.seal{width:30px;height:30px;border-radius:50%;background:var(--g);color:var(--y);display:grid;place-items:center;font-weight:900;font-size:10px;box-shadow:0 0 0 3px var(--t) inset}
+.bar{height:6px;background:#efe2d2;border-radius:6px;margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--t);border-radius:6px;transition:width .35s}
+.scr{display:none;padding:18px 0 120px;animation:in .3s ease}
+.scr.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1{font-weight:900;font-size:31px;line-height:1.08;color:var(--g);letter-spacing:-.6px}
+h2{font-weight:800;font-size:23px;line-height:1.18;color:var(--g);letter-spacing:-.3px;margin-bottom:18px;text-align:center}
+.lead{font-size:16.5px;color:var(--mu);margin-top:12px}
+.hl{background:linear-gradient(transparent 55%,var(--y) 55%);padding:0 2px}
+.hand{font-family:C,cursive;font-weight:600;color:var(--t2);font-size:24px}
+.btn{display:block;width:100%;border:0;border-radius:14px;background:var(--t);color:#fff;font-weight:800;font-size:17px;padding:17px 18px;text-align:center;text-decoration:none;box-shadow:0 5px 0 var(--t2);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--t2)}
+.btn.g{background:var(--g);box-shadow:0 5px 0 #0c2019}
+.opts{display:flex;flex-direction:column;gap:11px}
+.opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:var(--w);border:2px solid var(--ln);border-radius:14px;padding:14px 15px;font-size:15.5px;font-weight:600;color:var(--tx);transition:border-color .15s,background .15s}
+.opt .e{font-size:24px;width:30px;text-align:center;flex:none}
+.opt:hover{border-color:var(--t)}
+.opt.sel{border-color:var(--g);background:var(--mt)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.age{background:var(--w);border:2px solid var(--ln);border-radius:16px;padding:18px 10px;text-align:center;font-weight:800;color:var(--g)}
+.age b{display:block;font-size:30px;font-weight:900;letter-spacing:-1px}
+.age span{font-size:13px;color:var(--mu);font-weight:600}
+.age:hover{border-color:var(--t)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:22px}
+.chip{border:2px solid var(--ln);background:var(--w);border-radius:40px;padding:11px 16px;font-weight:700;font-size:15px;color:var(--tx)}
+.chip.sel{background:var(--g);border-color:var(--g);color:#fff}
+.card{background:var(--w);border-radius:18px;padding:20px;border:1px solid var(--ln)}
+.info{text-align:center}
+.info .big{font-size:52px;margin-bottom:6px}
+.info p{font-size:16.5px;margin-top:10px}
+.slider-box{background:var(--w);border-radius:18px;border:1px solid var(--ln);padding:26px 18px;text-align:center;margin-bottom:22px}
+.slider-box .val{font-weight:900;font-size:46px;color:var(--g);letter-spacing:-1px}
+.slider-box .val small{font-size:20px;font-weight:700;color:var(--mu);margin-left:4px}
+input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px}
+.ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--mu)}
+.field{width:100%;border:2px solid var(--ln);border-radius:14px;padding:16px;font-size:18px;font-family:inherit;margin-bottom:16px;background:#fff}
+.field:focus{outline:none;border-color:var(--g)}
+.note{font-size:12.5px;color:var(--mu);text-align:center;margin-top:12px}
+.hero-photo{border-radius:20px;overflow:hidden;margin:18px 0;position:relative;aspect-ratio:4/3;background:#ddd}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero-photo .tag{position:absolute;left:12px;bottom:12px;background:var(--g);color:#fff;font-weight:800;font-size:13px;padding:7px 11px;border-radius:9px}
+.hero-photo .tag2{position:absolute;right:12px;top:12px;background:var(--y);color:var(--g);font-weight:900;font-size:13px;padding:7px 11px;border-radius:9px;transform:rotate(3deg)}
+.trust{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--mu);font-weight:600}
+.loading{text-align:center;padding-top:30px}
+.ring{width:150px;height:150px;margin:0 auto 22px;border-radius:50%;background:conic-gradient(var(--t) calc(var(--p)*1%),#efe2d2 0);display:grid;place-items:center;--p:0}
+.ring div{width:122px;height:122px;border-radius:50%;background:var(--cr);display:grid;place-items:center;font-weight:900;font-size:32px;color:var(--g)}
+.steps{list-style:none;text-align:left;max-width:340px;margin:20px auto 0}
+.steps li{padding:9px 0;color:#b9a994;font-weight:600;display:flex;gap:10px;align-items:center}
+.steps li.ok{color:var(--g)}
+.steps li.ok:before{content:"✓";color:#fff;background:var(--g);border-radius:50%;width:22px;height:22px;display:inline-grid;place-items:center;font-size:13px}
+.steps li:not(.ok):before{content:"";width:22px;height:22px;border-radius:50%;border:2px solid #e2d3c0}
+/* resultado */
+.res-head{text-align:center}
+.res-head .kicker{display:inline-block;background:var(--g);color:var(--y);font-weight:800;font-size:12.5px;letter-spacing:.8px;text-transform:uppercase;padding:7px 12px;border-radius:30px;margin-bottom:14px}
+.agebox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 8px}
+.agebox div{border-radius:16px;padding:16px 8px;text-align:center}
+.agebox .a1{background:var(--w);border:1px solid var(--ln)}
+.agebox .a2{background:var(--g);color:#fff}
+.agebox small{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;opacity:.8}
+.agebox b{display:block;font-size:44px;font-weight:900;letter-spacing:-1.5px;line-height:1.1}
+.agebox .a2 b{color:var(--y)}
+.gauge{height:14px;border-radius:10px;background:linear-gradient(90deg,#3bb273,#ffd36e 50%,#ff6a3d);position:relative;margin:24px 4px 6px}
+.gauge i{position:absolute;top:-7px;width:4px;height:28px;background:var(--g);border-radius:3px;transform:translateX(-50%)}
+.gauge-l{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mu);font-weight:700;margin:0 4px}
+.alert{background:#fff1df;border:1.5px solid #ffc98a;border-radius:14px;padding:13px 15px;font-weight:700;color:#8a4b00;font-size:14.5px;margin:18px 0;display:flex;gap:10px}
+.prof{background:var(--mt);border-radius:18px;padding:20px;margin:18px 0}
+.prof h3{font-weight:900;color:var(--g);font-size:21px;margin:4px 0 8px}
+.prof .lab{font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--g2)}
+.list{list-style:none;margin-top:10px}
+.list li{padding:6px 0 6px 28px;position:relative;font-size:15.5px}
+.list li:before{content:"";position:absolute;left:0;top:9px;width:18px;height:18px;border-radius:50%;background:var(--t);box-shadow:inset 0 0 0 5px #fff;border:2px solid var(--t)}
+.sec{margin-top:34px}
+.sec h2{text-align:left;margin-bottom:12px}
+.mock{position:relative;margin:10px auto 0;max-width:420px}
+.mock img{width:100%;display:block}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}
+.week div{border-radius:10px;padding:9px 2px;text-align:center;font-size:11px;font-weight:700}
+.week .f{background:var(--g);color:#fff}
+.week .p{background:var(--y);color:var(--g)}
+.week b{display:block;font-size:15px;font-weight:900}
+.inc{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--ln)}
+.inc .n{flex:none;width:38px;height:38px;border-radius:11px;background:var(--g);color:var(--y);display:grid;place-items:center;font-weight:900}
+.inc h4{font-weight:800;color:var(--g);font-size:16px}
+.inc p{font-size:14.5px;color:var(--mu);margin-top:2px}
+.price{background:var(--g);color:#fff;border-radius:22px;padding:26px 20px;text-align:center;margin-top:30px;position:relative;overflow:hidden}
+.price:after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,211,110,.12)}
+.price .de{text-decoration:line-through;opacity:.7;font-weight:600}
+.price .por{font-size:58px;font-weight:900;letter-spacing:-2px;color:var(--y);line-height:1.05;margin:4px 0}
+.price .por small{font-size:24px;letter-spacing:0;margin-right:4px}
+.price .pix{font-size:13.5px;opacity:.85;margin-bottom:16px}
+.guar{display:flex;gap:14px;align-items:center;background:var(--w);border:1px solid var(--ln);border-radius:18px;padding:18px;margin-top:22px}
+.guar .s{flex:none;width:70px;height:70px;border-radius:50%;background:var(--y);display:grid;place-items:center;text-align:center;font-weight:900;color:var(--g);font-size:12px;line-height:1.1;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--y)}
+.guar .s b{font-size:24px;display:block}
+.faq details{background:var(--w);border:1px solid var(--ln);border-radius:14px;padding:15px 16px;margin-bottom:9px}
+.faq summary{font-weight:800;color:var(--g);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary:after{content:"+";font-size:20px;line-height:1;color:var(--t)}
+.faq details[open] summary:after{content:"–"}
+.faq p{margin-top:9px;font-size:15px;color:var(--mu)}
+.foot{margin-top:40px;padding:22px 0 30px;border-top:1px solid var(--ln);font-size:11.5px;color:var(--mu);text-align:center;line-height:1.55}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(255,246,236,.97);backdrop-filter:blur(6px);border-top:1px solid var(--ln);padding:10px 16px calc(10px + env(safe-area-inset-bottom));z-index:30;transform:translateY(110%);transition:transform .3s}
+.sticky.on{transform:none}
+.sticky .wrap{display:flex;gap:12px;align-items:center;padding:0}
+.sticky .p{font-weight:900;color:var(--g);font-size:20px;white-space:nowrap}
+.sticky .p small{display:block;font-size:11px;color:var(--mu);font-weight:700;text-decoration:line-through}
+.sticky .btn{padding:14px 10px;font-size:15.5px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--g);color:#fff;padding:12px 16px;border-radius:12px;font-size:14px;font-weight:700;z-index:40;display:none;max-width:90%}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="row"><button class="back" id="back" aria-label="Voltar">←</button><div class="logo"><span class="seal">5/7</span>Metabolismo Reativado</div><span style="width:34px"></span></div>
+  <div class="bar"><i id="bar"></i></div>
+</div></header>
+
+<main class="wrap" id="app">
+
+<!-- 0 CAPA -->
+<section class="scr on" data-s="capa">
+  <p class="hand" style="text-align:center">teste gratuito · 2 minutos</p>
+  <h1 style="text-align:center;margin-top:4px">Qual a idade do <span class="hl">seu metabolismo</span>?</h1>
+  <div class="hero-photo"><img src="img/1181686.jpg" alt="Mulher sorrindo"><span class="tag">Idade real: 47</span><span class="tag2">Metabolismo: ?</span></div>
+  <p class="lead" style="text-align:center;margin-bottom:20px">Responda 20 perguntas rápidas e descubra se o seu metabolismo está <b>mais velho que você</b> e o que fazer nos próximos 7 dias.</p>
+  <button class="btn" data-next>Fazer o teste agora →</button>
+  <div class="trust"><span>✓ Gratuito</span><span>✓ Resultado na hora</span><span>✓ Sem cadastro</span></div>
+</section>
+
+<!-- 1 IDADE -->
+<section class="scr" data-s="idade" data-q>
+  <h2>Qual a sua faixa de idade?</h2>
+  <div class="grid2">
+    <button class="age" data-v="25"><b>18–29</b><span>anos</span></button>
+    <button class="age" data-v="35"><b>30–39</b><span>anos</span></button>
+    <button class="age" data-v="45"><b>40–49</b><span>anos</span></button>
+    <button class="age" data-v="55"><b>50–59</b><span>anos</span></button>
+    <button class="age" data-v="63" style="grid-column:1/3"><b>60+</b><span>anos</span></button>
+  </div>
+</section>
+
+<!-- 2 INFO -->
+<section class="scr" data-s="info1">
+  <div class="card info"><div class="big">⏳</div>
+    <h2 style="margin-bottom:6px">Depois dos 35, o corpo muda as regras do jogo</h2>
+    <p>Menos massa muscular, hormônios mudando e uma rotina mais corrida fazem o corpo <b>gastar menos e guardar mais</b>.</p>
+    <p>É por isso que a dieta que funcionava aos 25 <span class="hl">para de funcionar</span>. Não é falta de força de vontade.</p>
+  </div>
+  <div style="height:22px"></div><button class="btn" data-next>Continuar</button>
+</section>
+
+<!-- 3 ALTURA -->
+<section class="scr" data-s="altura">
+  <h2>Qual a sua altura?</h2>
+  <div class="slider-box"><div class="val"><span id="vAlt">162</span><small>cm</small></div>
+    <input type="range" id="alt" min="140" max="200" value="162"><div class="ticks"><span>140</span><span>170</span><span>200</span></div></div>
+  <button class="btn" data-next>Continuar</button>
+</section>
+
+<!-- 4 PESO -->
+<section class="scr" data-s="peso">
+  <h2>Qual o seu peso atual?</h2>
+  <div class="slider-box"><div class="val"><span id="vPeso">72</span><small>kg</small></div>
+    <input type="range" id="peso" min="40" max="160" value="72"><div class="ticks"><span>40</span><span>100</span><span>160</span></div></div>
+  <button class="btn" data-next>Continuar</button>
+</section>
+
+<!-- 5 BARRIGA (inchado) -->
+<section class="scr" data-s="barriga" data-q data-dim="inch">
+  <h2>Como você descreveria sua barriga hoje?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🙂</span>Plana ou quase plana</button>
+    <button class="opt" data-v="1"><span class="e">😐</span>Um pouco de barriga, disfarço com roupa</button>
+    <button class="opt" data-v="2"><span class="e">😕</span>Saliente, é a primeira coisa que noto</button>
+    <button class="opt" data-v="3"><span class="e">😣</span>Dura e estufada quase o tempo todo</button>
+  </div>
+</section>
+
+<!-- 6 SANFONA (travado) -->
+<section class="scr" data-s="sanfona" data-q data-dim="trav">
+  <h2>Quantas vezes você já emagreceu e engordou de novo?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🙂</span>Nunca aconteceu</button>
+    <button class="opt" data-v="1"><span class="e">😐</span>1 ou 2 vezes</button>
+    <button class="opt" data-v="2"><span class="e">😕</span>3 a 5 vezes</button>
+    <button class="opt" data-v="3"><span class="e">😩</span>Perdi as contas</button>
+  </div>
+</section>
+
+<!-- 7 ULTIMOS 2 ANOS (travado) -->
+<section class="scr" data-s="2anos" data-q data-dim="trav">
+  <h2>Nos últimos 2 anos, o que aconteceu com o seu peso?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">⚖️</span>Ficou igual</button>
+    <button class="opt" data-v="1"><span class="e">📈</span>Subiu até 5 kg</button>
+    <button class="opt" data-v="2"><span class="e">📈</span>Subiu de 5 a 10 kg</button>
+    <button class="opt" data-v="3"><span class="e">🚨</span>Subiu mais de 10 kg</button>
+  </div>
+</section>
+
+<!-- 8 INFO -->
+<section class="scr" data-s="info2">
+  <div class="card info"><div class="big">🤝</div>
+    <h2 style="margin-bottom:6px">Você não está sozinha</h2>
+    <p>O efeito sanfona é um dos sinais mais comuns de um metabolismo que <b>aprendeu a se defender</b>: cada dieta radical ensina o corpo a guardar mais na próxima vez.</p>
+    <p>A boa notícia: dá pra <span class="hl">reeducar esse ritmo</span> sem passar fome. Siga respondendo.</p>
+  </div>
+  <div style="height:22px"></div><button class="btn" data-next>Continuar</button>
+</section>
+
+<!-- 9 CARBO (doce) -->
+<section class="scr" data-s="carbo" data-q data-dim="doce">
+  <h2>Como você se sente depois de comer pão, massa ou arroz?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">⚡</span>Normal, com energia</button>
+    <button class="opt" data-v="1"><span class="e">🥱</span>Um soninho leve</button>
+    <button class="opt" data-v="2"><span class="e">😴</span>Muito sono, quase não funciono</button>
+    <button class="opt" data-v="3"><span class="e">🍞</span>Sono pesado e fome de novo em 2 horas</button>
+  </div>
+</section>
+
+<!-- 10 DOCE (doce) -->
+<section class="scr" data-s="doce" data-q data-dim="doce">
+  <h2>Você sente vontade forte de doce durante o dia?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🍎</span>Raramente</button>
+    <button class="opt" data-v="1"><span class="e">🍫</span>De vez em quando, controlo bem</button>
+    <button class="opt" data-v="2"><span class="e">🍰</span>Quase todo dia, à tarde ou à noite</button>
+    <button class="opt" data-v="3"><span class="e">🍩</span>Parece um vício, não consigo parar</button>
+  </div>
+</section>
+
+<!-- 11 ESTRESSE (estr) -->
+<section class="scr" data-s="estresse" data-q data-dim="estr">
+  <h2>Como está o seu nível de estresse no dia a dia?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">😌</span>Tranquilo, lido bem</button>
+    <button class="opt" data-v="1"><span class="e">🤔</span>Moderado, administro</button>
+    <button class="opt" data-v="2"><span class="e">😮‍💨</span>Alto, vivo sobrecarregada</button>
+    <button class="opt" data-v="3"><span class="e">🤯</span>No limite quase todo dia</button>
+  </div>
+</section>
+
+<!-- 12 SONO (estr) -->
+<section class="scr" data-s="sono" data-q data-dim="estr">
+  <h2>Como é a qualidade do seu sono?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🌙</span>Durmo bem e acordo descansada</button>
+    <button class="opt" data-v="1"><span class="e">🛏️</span>Razoável, às vezes acordo cansada</button>
+    <button class="opt" data-v="2"><span class="e">🌀</span>Demoro pra dormir ou acordo de madrugada</button>
+    <button class="opt" data-v="3"><span class="e">🥀</span>Durmo pouco e acordo pior do que deitei</button>
+  </div>
+</section>
+
+<!-- 13 AREAS (multi) -->
+<section class="scr" data-s="areas" data-multi>
+  <h2>Onde você mais quer ver diferença?</h2>
+  <p class="note" style="margin:-8px 0 16px">Pode marcar mais de uma</p>
+  <div class="chips">
+    <button class="chip">Barriga</button><button class="chip">Pochete</button><button class="chip">Braços</button><button class="chip">Culote</button>
+    <button class="chip">Costas</button><button class="chip">Coxas</button><button class="chip">Rosto inchado</button><button class="chip">Pernas</button>
+  </div>
+  <button class="btn" data-next>Continuar</button>
+</section>
+
+<!-- 14 INFO: como funciona -->
+<section class="scr" data-s="info3">
+  <h2>Como funciona o jejum 5 em 7</h2>
+  <div class="card">
+    <div class="week">
+      <div class="f">SEG<b>12h</b></div><div class="f">TER<b>13h</b></div><div class="f">QUA<b>14h</b></div><div class="p">QUI<b>pausa</b></div><div class="f">SEX<b>14h</b></div><div class="f">SÁB<b>16h</b></div><div class="p">DOM<b>pausa</b></div>
+    </div>
+    <ul class="list" style="margin-top:16px">
+      <li><b>5 dias</b> de jejum guiado, com a janela crescendo aos poucos (12 h → 16 h). A maior parte acontece <b>enquanto você dorme</b>.</li>
+      <li><b>2 dias de pausa</b> pra o corpo não entrar em modo defesa.</li>
+      <li>Cardápio pronto pra <b>quebrar o jejum</b> sem cair no doce.</li>
+    </ul>
+  </div>
+  <p class="note">Sem remédio, sem shake, sem contar caloria.</p>
+  <div style="height:16px"></div><button class="btn" data-next>Continuar respondendo</button>
+</section>
+
+<!-- 15 INTESTINO (inch) -->
+<section class="scr" data-s="intestino" data-q data-dim="inch">
+  <h2>Como funciona o seu intestino?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">✅</span>Todo dia, sem problema</button>
+    <button class="opt" data-v="1"><span class="e">📅</span>Às vezes fico 1 ou 2 dias sem ir</button>
+    <button class="opt" data-v="2"><span class="e">🔒</span>Preso com frequência</button>
+    <button class="opt" data-v="3"><span class="e">🎈</span>Desregulado, com inchaço e gases</button>
+  </div>
+</section>
+
+<!-- 16 DIETA (trav) -->
+<section class="scr" data-s="dieta" data-q data-dim="trav">
+  <h2>Quando você faz dieta, o que acontece?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">👍</span>Funciona e eu mantenho</button>
+    <button class="opt" data-v="1"><span class="e">🐢</span>Funciona, mas bem mais devagar que antes</button>
+    <button class="opt" data-v="2"><span class="e">🧱</span>Parece que nada funciona mais</button>
+    <button class="opt" data-v="3"><span class="e">😤</span>Como pouco e mesmo assim não sai do lugar</button>
+  </div>
+</section>
+
+<!-- 17 ENERGIA (estr) -->
+<section class="scr" data-s="energia" data-q data-dim="estr">
+  <h2>Como fica a sua energia ao longo do dia?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🔋</span>Alta, dou conta de tudo</button>
+    <button class="opt" data-v="1"><span class="e">🪫</span>Razoável, com quedas à tarde</button>
+    <button class="opt" data-v="2"><span class="e">☕</span>Só funciono à base de café</button>
+    <button class="opt" data-v="3"><span class="e">🧟‍♀️</span>Acordo cansada e passo o dia arrastada</button>
+  </div>
+</section>
+
+<!-- 18 JEJUM ANTES -->
+<section class="scr" data-s="jejum" data-q data-key="jejum">
+  <h2>Você já tentou fazer jejum?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🆕</span>Nunca tentei</button>
+    <button class="opt" data-v="1"><span class="e">😵</span>Tentei e desisti, passei mal ou fome</button>
+    <button class="opt" data-v="2"><span class="e">🔁</span>Faço às vezes, sem método</button>
+    <button class="opt" data-v="3"><span class="e">🏅</span>Faço com frequência</button>
+  </div>
+</section>
+
+<!-- 19 FOME -->
+<section class="scr" data-s="fome" data-q data-key="fome">
+  <h2>Em que hora do dia a fome aperta mais?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🌅</span>De manhã, acordo com fome</button>
+    <button class="opt" data-v="1"><span class="e">☀️</span>À tarde</button>
+    <button class="opt" data-v="2"><span class="e">🌙</span>À noite, depois do jantar</button>
+    <button class="opt" data-v="3"><span class="e">🔄</span>O dia inteiro</button>
+  </div>
+</section>
+
+<!-- 20 META -->
+<section class="scr" data-s="meta" data-q data-key="meta">
+  <h2>O que você mais quer sentir daqui a 7 dias?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🎈</span>Barriga desinchada</button>
+    <button class="opt" data-v="1"><span class="e">🍬</span>Controle da vontade de doce</button>
+    <button class="opt" data-v="2"><span class="e">👖</span>A roupa servindo melhor</button>
+    <button class="opt" data-v="3"><span class="e">⚡</span>Mais disposição</button>
+  </div>
+</section>
+
+<!-- 21 NOME -->
+<section class="scr" data-s="nome">
+  <h2>Pra finalizar: como você se chama?</h2>
+  <input class="field" id="nome" placeholder="Seu primeiro nome" autocomplete="given-name" maxlength="30">
+  <input class="field" id="idadeExata" type="number" inputmode="numeric" placeholder="Sua idade (ex.: 46)" min="18" max="90">
+  <button class="btn" id="calc">Ver meu resultado</button>
+  <p class="note">Usamos só pra montar o seu resultado. Nada é enviado.</p>
+</section>
+
+<!-- 22 LOADING -->
+<section class="scr" data-s="loading">
+  <div class="loading">
+    <div class="ring" id="ring"><div id="ringN">0%</div></div>
+    <h2 style="margin-bottom:0">Calculando a idade do seu metabolismo…</h2>
+    <ul class="steps" id="steps">
+      <li>Analisando peso e altura</li><li>Cruzando sono, estresse e energia</li><li>Avaliando inchaço e intestino</li><li>Medindo a resposta à dieta</li><li>Montando seu plano 5 em 7</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 23 RESULTADO + OFERTA -->
+<section class="scr" data-s="resultado">
+  <div class="res-head">
+    <span class="kicker">Seu resultado</span>
+    <h1 id="rTitle">Ana, seu metabolismo tem 54 anos</h1>
+  </div>
+  <div class="agebox">
+    <div class="a1"><small>Idade real</small><b id="rReal">46</b></div>
+    <div class="a2"><small>Idade do metabolismo</small><b id="rMeta">54</b></div>
+  </div>
+  <div class="gauge"><i id="rPin" style="left:70%"></i></div>
+  <div class="gauge-l"><span>Jovem</span><span>Desacelerado</span><span>Travado</span></div>
+  <div class="alert" id="rAlert"><span>⚠️</span><span id="rAlertT">Seu metabolismo está 8 anos mais velho que você.</span></div>
+  <p id="rImc" style="font-size:14.5px;color:var(--mu)"></p>
+
+  <div class="prof">
+    <div class="lab">Seu perfil</div>
+    <h3 id="pNome">Metabolismo Travado</h3>
+    <p id="pDesc"></p>
+    <ul class="list" id="pSinais"></ul>
+  </div>
+
+  <div class="card" style="margin-top:6px">
+    <p class="hand" style="font-size:22px">o que fazer agora</p>
+    <p style="font-weight:700;color:var(--g);font-size:17px;margin-top:2px" id="planoT">O seu plano é o Desafio de Jejum 5 em 7</p>
+    <p style="margin-top:8px;font-size:15px" id="planoD"></p>
+  </div>
+
+  <div style="height:20px"></div>
+  <a class="btn cta" href="#oferta" data-cta="resultado">Quero meu plano de 7 dias →</a>
+
+  <div class="sec" id="oferta">
+    <p class="hand">apresentando</p>
+    <h2 style="font-size:27px">Metabolismo Reativado · Desafio Jejum 5 em 7</h2>
+    <p>Um plano de 7 dias, passo a passo, pra você <b>desinchar, controlar a vontade de doce e destravar a rotina</b> com um jejum que respeita a sua idade. Sem remédio, sem shake e sem passar o dia com fome.</p>
+    <div class="mock"><img src="img/mockup.png" alt="Guia Metabolismo Reativado" loading="lazy"></div>
+  </div>
+
+  <div class="sec">
+    <h2>Sua semana</h2>
+    <div class="week">
+      <div class="f">DIA 1<b>12h</b></div><div class="f">DIA 2<b>13h</b></div><div class="f">DIA 3<b>14h</b></div><div class="p">DIA 4<b>pausa</b></div><div class="f">DIA 5<b>14h</b></div><div class="f">DIA 6<b>16h</b></div><div class="p">DIA 7<b>pausa</b></div>
+    </div>
+    <p class="note" id="janela">Sua janela sugerida: comer das 10h às 18h.</p>
+  </div>
+
+  <div class="sec">
+    <h2>O que você recebe</h2>
+    <div class="inc"><span class="n">1</span><div><h4>Guia do Desafio 5 em 7</h4><p>Os 7 dias explicados um a um: horário da janela, o que tomar no jejum, como quebrar o jejum e a tarefa do dia.</p></div></div>
+    <div class="inc"><span class="n">2</span><div><h4>Cardápio dos 7 dias</h4><p>Café, almoço e jantar dentro da janela, com comida de mercado comum.</p></div></div>
+    <div class="inc"><span class="n">3</span><div><h4>Plano SOS Fome</h4><p>O que fazer nos 3 momentos em que a fome aperta, pra não largar no dia 2.</p></div></div>
+    <div class="inc"><span class="n">4</span><div><h4>Lista de compras + Diário de 7 dias</h4><p>Imprima ou use no celular: marque cada dia, a água e como você se sentiu.</p></div></div>
+    <div class="inc" style="border:0"><span class="n">5</span><div><h4>Depois do dia 7</h4><p>Como manter o ritmo sem voltar pro efeito sanfona.</p></div></div>
+  </div>
+
+  <div class="price">
+    <div class="de">De R$ <span class="pDe">97</span></div>
+    <div class="por"><small>R$</small><span class="pPor">27</span></div>
+    <div class="pix">pagamento único · Pix ou cartão · acesso imediato no e-mail</div>
+    <a class="btn cta" href="#" data-cta="preco">Quero começar o desafio →</a>
+  </div>
+
+  <div class="guar"><div class="s"><b>7</b>DIAS</div><div><b style="color:var(--g)">Garantia de 7 dias</b><p style="font-size:14.5px;color:var(--mu);margin-top:3px">Faça o desafio. Se não gostar, peça o reembolso em até 7 dias e recebe 100% de volta. Sem pergunta.</p></div></div>
+
+  <div class="sec faq">
+    <h2>Perguntas frequentes</h2>
+    <details><summary>Vou passar fome?</summary><p>A janela começa em 12 h (por exemplo, das 20h às 8h), que é praticamente a sua noite de sono. Ela cresce aos poucos e o guia traz o que tomar e o que fazer quando a fome aparece.</p></details>
+    <details><summary>Funciona depois dos 40 ou 50?</summary><p>O desafio foi pensado pra mulheres a partir dos 35, com janela progressiva e 2 dias de pausa por semana. Resultados variam de pessoa pra pessoa.</p></details>
+    <details><summary>Preciso comprar shake, chá ou suplemento?</summary><p>Não. O cardápio usa comida de mercado comum.</p></details>
+    <details><summary>Como recebo?</summary><p>Logo após o pagamento você recebe o acesso no e-mail. O material é digital (PDF) e abre no celular.</p></details>
+    <details><summary>Quem não deve fazer?</summary><p>Gestantes, lactantes, menores de 18, pessoas com diabetes em uso de medicação, com histórico de transtorno alimentar ou qualquer condição de saúde: converse com seu médico antes de começar.</p></details>
+  </div>
+
+  <a class="btn cta" href="#" data-cta="faq" style="margin-top:22px">Quero meu Metabolismo Reativado →</a>
+
+  <footer class="foot">
+    Metabolismo Reativado · Desafio Jejum 5 em 7 é um conteúdo educativo de rotina alimentar. Não é tratamento, não substitui acompanhamento médico ou nutricional e não promete resultado específico: resultados variam de pessoa pra pessoa. A "idade do metabolismo" deste teste é uma estimativa ilustrativa baseada nas suas respostas, não um exame.<br><br>
+    Este site não faz parte do Facebook ou da Meta Platforms, Inc.
+  </footer>
+</section>
+</main>
+
+<div class="sticky" id="sticky"><div class="wrap"><div class="p"><small>R$ <span class="pDe">97</span></small>R$ <span class="pPor">27</span></div><a class="btn cta" href="#" data-cta="sticky">Começar o desafio</a></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var C=window.M30, $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var scr=$$('.scr'), cur=0, hist=[], ans={dims:{trav:0,inch:0,doce:0,estr:0},keys:{}}, picked={};
+var QTOTAL=scr.length-2;
+/* pixel */
+if(C.META_PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',C.META_PIXEL_ID);fbq('track','PageView');}
+function px(ev,data){try{if(window.fbq)fbq('track',ev,data||{})}catch(e){}}
+$$('.pPor').forEach(function(e){e.textContent=C.PRECO}); $$('.pDe').forEach(function(e){e.textContent=C.PRECO_DE});
+function show(i,push){ if(push!==false)hist.push(cur); scr[cur].classList.remove('on'); cur=i; scr[cur].classList.add('on');
+  $('#bar').style.width=Math.min(100,Math.round(cur/(scr.length-1)*100))+'%';
+  $('#back').style.visibility=(cur>0&&scr[cur].dataset.s!=='loading'&&scr[cur].dataset.s!=='resultado')?'visible':'hidden';
+  window.scrollTo(0,0);
+  if(scr[cur].dataset.s==='loading')runLoading();
+  $('#sticky').classList.toggle('on',scr[cur].dataset.s==='resultado');
+}
+function next(){show(cur+1)}
+$('#back').onclick=function(){if(hist.length){var p=hist.pop();show(p,false)}};
+$$('[data-next]').forEach(function(b){b.onclick=next});
+/* single choice */
+$$('.scr[data-q]').forEach(function(s){
+  $$('.opt,.age',s).forEach(function(b){b.onclick=function(){
+    $$('.opt,.age',s).forEach(function(x){x.classList.remove('sel')}); b.classList.add('sel');
+    var v=+b.dataset.v, key=s.dataset.s;
+    if(s.dataset.dim){ if(picked[key]!=null)ans.dims[s.dataset.dim]-=picked[key]; ans.dims[s.dataset.dim]+=v; }
+    if(s.dataset.key)ans.keys[s.dataset.key]=v;
+    if(key==='idade')ans.faixa=v;
+    picked[key]=v; setTimeout(next,260);
+  }});
+});
+$$('.chip').forEach(function(c){c.onclick=function(){c.classList.toggle('sel')}});
+var alt=$('#alt'),peso=$('#peso');
+alt.oninput=function(){$('#vAlt').textContent=alt.value}; peso.oninput=function(){$('#vPeso').textContent=peso.value};
+$('#calc').onclick=function(){ ans.nome=($('#nome').value||'').trim().split(' ')[0]; var ie=+$('#idadeExata').value; ans.idade=(ie>=18&&ie<=90)?ie:(ans.faixa||45); px('Lead'); next(); };
+function runLoading(){
+  var p=0, li=$$('#steps li'); li.forEach(function(l){l.classList.remove('ok')});
+  var t=setInterval(function(){p+=2; $('#ring').style.setProperty('--p',p); $('#ringN').textContent=p+'%';
+    li.forEach(function(l,i){ if(p>=(i+1)*19)l.classList.add('ok') });
+    if(p>=100){clearInterval(t); setTimeout(function(){buildResult(); next()},400)} },70);
+}
+var PERFIS={
+ trav:{n:'Metabolismo Travado',d:'Seu corpo aprendeu a se defender: depois de tantas dietas, ele gasta menos e guarda mais. Por isso comer pouco não resolve e o peso volta.',s:['A dieta funciona cada vez menos','O peso volta (efeito sanfona)','Sensação de que o corpo "empacou"'],p:'O 5 em 7 alterna dias de jejum com 2 dias de pausa justamente pra não acionar o modo defesa que as dietas radicais acionam.'},
+ inch:{n:'Metabolismo Inchado',d:'Seu corpo está segurando líquido e o intestino não está ajudando. A barriga estufa ao longo do dia e a roupa aperta mesmo sem você ter comido muito.',s:['Barriga estufada no fim do dia','Intestino preso ou desregulado','Rosto e pernas inchados'],p:'Nos 7 dias, a janela de jejum dá descanso pra digestão e o cardápio de quebra do jejum foi montado pra desinchar, com fibra, água e menos ultraprocessado.'},
+ doce:{n:'Metabolismo Viciado em Doce',d:'Seu corpo vive numa montanha-russa: come carboidrato, dá sono, vem a fome de novo e a vontade de doce manda no seu dia.',s:['Sono depois do almoço','Vontade de doce à tarde ou à noite','Fome que volta em 2 horas'],p:'O desafio troca a montanha-russa por janelas fixas e uma quebra de jejum com proteína, que segura a fome e reduz a vontade de doce ao longo da semana.'},
+ estr:{n:'Metabolismo Estressado',d:'Estresse alto, sono ruim e cansaço deixam o corpo em alerta, e um corpo em alerta segura gordura, principalmente na barriga.',s:['Sono leve ou curto','Cansaço que o café não resolve','Barriga que cresce nas fases de estresse'],p:'O 5 em 7 começa com uma janela leve que coincide com o sono, e cada dia tem uma tarefa curta de rotina pra baixar o estresse junto com o jejum.'}
+};
+function buildResult(){
+  var h=+alt.value/100, w=+peso.value, imc=w/(h*h), d=ans.dims;
+  var tot=d.trav+d.inch+d.doce+d.estr; /* 0..36 */
+  var off=Math.round(tot/36*13)+(imc>=30?3:imc>=25?1:0)+((ans.idade||45)>=40?1:0);
+  if(off<2&&tot>4)off=2;
+  var meta=ans.idade+off, nome=ans.nome?ans.nome+', s':'S';
+  var order=['trav','inch','doce','estr'].sort(function(a,b){return d[b]-d[a]}); var P=PERFIS[order[0]];
+  $('#rTitle').textContent=nome+'eu metabolismo tem '+meta+' anos';
+  $('#rReal').textContent=ans.idade; $('#rMeta').textContent=meta;
+  $('#rPin').style.left=Math.max(6,Math.min(94,15+off*6))+'%';
+  $('#rAlertT').textContent= off>0 ? 'Seu metabolismo está '+off+(off===1?' ano':' anos')+' mais velho que você. Sem mudar a rotina, a tendência é essa diferença aumentar.' : 'Seu metabolismo está em dia. O desafio ajuda a manter esse ritmo depois dos 35.';
+  var faixa=imc<18.5?'abaixo do ideal':imc<25?'na faixa ideal':imc<30?'acima do ideal':'bem acima do ideal';
+  $('#rImc').textContent='Seu IMC estimado é '+imc.toFixed(1).replace('.',',')+' ('+faixa+').';
+  $('#pNome').textContent=P.n; $('#pDesc').textContent=P.d;
+  $('#pSinais').innerHTML=P.s.map(function(x){return '<li>'+x+'</li>'}).join('');
+  var j=ans.keys.jejum, intro = j===1?'Você já tentou jejum e desistiu: aqui é diferente, a janela começa em 12 h, quase toda dormindo. ':j===0?'Nunca fez jejum? Ótimo ponto de partida: a janela começa em 12 h, quase toda dormindo. ':'';
+  $('#planoD').textContent=intro+P.p;
+  var f=ans.keys.fome, jan = f===0?'comer das 8h às 16h (você tem mais fome de manhã)':f===2?'comer das 12h às 20h (sua fome aperta à noite)':'comer das 10h às 18h';
+  $('#janela').textContent='Sua janela sugerida no dia de 16 h: '+jan+'. O guia ajusta os outros dias.';
+  ans.meta=meta; ans.perfil=order[0];
+  px('ViewContent',{content_name:'Metabolismo Reativado',value:+C.PRECO,currency:'BRL'});
+}
+/* checkout */
+function checkoutUrl(){
+  if(!C.CHECKOUT_URL)return '';
+  var u=new URL(C.CHECKOUT_URL), q=new URLSearchParams(location.search);
+  q.forEach(function(v,k){ if(!u.searchParams.has(k))u.searchParams.set(k,v) });
+  if(ans.nome&&!u.searchParams.has('name'))u.searchParams.set('name',ans.nome);
+  return u.toString();
+}
+function toast(t){var e=$('#toast');e.textContent=t;e.style.display='block';setTimeout(function(){e.style.display='none'},2600)}
+$$('.cta').forEach(function(a){a.addEventListener('click',function(ev){
+  if(a.getAttribute('href')==='#oferta')return;
+  ev.preventDefault(); var u=checkoutUrl();
+  if(!u){toast('Checkout ainda não configurado.');return}
+  px('InitiateCheckout',{value:+C.PRECO,currency:'BRL'}); location.href=u;
+})});
+})();
+</script>
+</body>
+</html>

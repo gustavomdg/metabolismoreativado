@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pedido confirmado · Metabolismo Reativado</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#16352B">
+<script>
+window.MR_OK = {
+  META_PIXEL_ID: "",
+  SUPORTE_EMAIL: ""   // e-mail de suporte que aparece no fim da página (opcional)
+};
+</script>
+<style>
+@font-face{font-family:M;src:url(../fonts/montserrat-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:M;src:url(../fonts/montserrat-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:M;src:url(../fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:M;src:url(../fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:C;src:url(../fonts/Caveat-600n-latin.woff2) format('woff2');font-weight:600;font-display:swap}
+:root{--g:#16352B;--t:#FF6A3D;--cr:#FFF6EC;--y:#FFD36E;--mt:#CDEBD8;--tx:#1d2a24;--mu:#5d6b64;--ln:#ead9c6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cr);color:var(--tx);font-family:M,system-ui,sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:28px 18px 40px}
+.ok{width:84px;height:84px;border-radius:50%;background:var(--g);color:var(--y);display:grid;place-items:center;font-size:42px;margin:0 auto;box-shadow:0 0 0 6px var(--t) inset}
+h1{font-weight:900;font-size:30px;line-height:1.08;color:var(--g);letter-spacing:-.6px;margin-top:20px;text-align:center}
+.hl{background:linear-gradient(transparent 55%,var(--y) 55%);padding:0 2px}
+.lead{font-size:16.5px;color:var(--mu);margin-top:12px;text-align:center}
+.steps{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+.st{background:#fff;border:2px solid var(--ln);border-radius:16px;padding:16px 16px 16px 64px;position:relative}
+.st b{position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;background:var(--t);color:#fff;display:grid;place-items:center;font-weight:900}
+.st h2{font-weight:800;font-size:17px;color:var(--g)}
+.st p{font-size:14.5px;color:var(--mu);margin-top:4px}
+.box{background:var(--mt);border-radius:16px;padding:16px;margin-top:22px;font-size:14.5px;color:var(--g);font-weight:600}
+.hand{font-family:C,cursive;font-weight:600;color:var(--t);font-size:26px;text-align:center;margin-top:24px}
+.fine{font-size:12px;color:var(--mu);text-align:center;margin-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="ok">✓</div>
+  <h1>Pronto! Seu <span class="hl">Metabolismo Reativado</span> está liberado.</h1>
+  <p class="lead">Desafio Jejum 5 em 7 · seu acesso chega no e-mail que você usou na compra.</p>
+
+  <div class="steps">
+    <div class="st"><b>1</b><h2>Abra seu e-mail agora</h2><p>Procure a mensagem da Cakto com o seu acesso. Não achou? Olhe no Spam e em Promoções.</p></div>
+    <div class="st"><b>2</b><h2>Hoje: leia as páginas 2 a 5 do guia</h2><p>Leva 10 minutos. Depois faça a lista de compras da página 14.</p></div>
+    <div class="st"><b>3</b><h2>Amanhã é o Dia 1</h2><p>Jante até as 20h e só volte a comer às 8h. Só isso. O resto o guia te leva dia a dia.</p></div>
+  </div>
+
+  <div class="box">Comprou algum bônus (Cardápio da Janela, SOS Vontade de Doce ou Fase 2)? Ele já aparece na mesma área de membros.</div>
+
+  <p class="hand">bora reativar! 🧡</p>
+  <p class="fine" id="sup"></p>
+  <p class="fine">Se você tem alguma condição de saúde, usa medicamento, está grávida ou amamentando, fale com seu médico antes de começar. Conteúdo educativo; resultados variam de pessoa pra pessoa.</p>
+</div>
+<script>
+var K=window.MR_OK;
+if(K.SUPORTE_EMAIL)document.getElementById('sup').textContent='Dúvidas? Escreva pra '+K.SUPORTE_EMAIL;
+if(K.META_PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',K.META_PIXEL_ID);fbq('track','PageView');}
+</script>
+</body>
+</html>
