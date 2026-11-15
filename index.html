@@ -504,7 +504,7 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
     <label style="font-weight:800;color:var(--t2)">Seu melhor e-mail:</label>
     <input class="field" id="email" name="email" type="email" placeholder="seuemail@email.com" autocomplete="email">
     <label style="font-weight:800;color:var(--t2)">Seu WhatsApp:</label>
-    <input class="field" id="whats" name="whatsapp" type="tel" inputmode="tel" placeholder="(00) 00000-0000" autocomplete="tel">
+    <input class="field" id="whats" name="whatsapp" type="tel" inputmode="tel" placeholder="(11) 96289-0909" maxlength="15" autocomplete="tel">
     <input type="hidden" name="nome" id="fNome"><input type="hidden" name="idade" id="fIdade">
     <button class="btn" id="enviarContato" type="button">CONTINUAR</button>
   </form>
@@ -680,10 +680,10 @@ $$('.chip').forEach(function(c){c.onclick=function(){c.classList.toggle('sel')}}
 var alt=$('#alt'),peso=$('#peso');
 alt.oninput=function(){$('#vAlt').textContent=alt.value}; peso.oninput=function(){$('#vPeso').textContent=peso.value};
 $('#calc').onclick=function(){ ans.nome=($('#nome').value||'').trim().split(' ')[0]; var ie=+$('#idadeExata').value; ans.idade=(ie>=18&&ie<=90)?ie:(ans.faixa||45); $('#possNome').textContent=ans.nome?ans.nome+', ':''; next(); };
+$('#whats').oninput=function(){var d=this.value.replace(/\D/g,'').slice(0,11),o=d;if(d.length>2)o='('+d.slice(0,2)+') '+d.slice(2);if(d.length>7)o='('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7);this.value=o};
 $('#enviarContato').onclick=function(){
   var e=$('#email').value.trim(), w=$('#whats').value.replace(/\D/g,'');
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){$('#cErr').textContent='Digite um e-mail válido.';return}
-  if(w.length<10){$('#cErr').textContent='Digite seu WhatsApp com DDD.';return}
   $('#cErr').textContent=''; $('#fNome').value=ans.nome||''; $('#fIdade').value=ans.idade||'';
   try{fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData($('#fContato'))).toString()})}catch(x){}
   px('Lead'); next();
