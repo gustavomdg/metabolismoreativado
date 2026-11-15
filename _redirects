@@ -1,1 +1,4 @@
-/resultado/*  /index.html  200
+/quiz      /index.html  200
+/quiz/*    /index.html  200
+/resultado   /index.html  200
+/resultado/* /index.html  200
