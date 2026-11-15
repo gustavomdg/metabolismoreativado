@@ -494,6 +494,21 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
   </div>
 </section>
 
+<section class="scr" data-s="contato">
+  <h2 style="color:var(--t2)">Pronto!</h2>
+  <p class="sub" style="text-align:center">Chegou a hora de descobrir sua Idade Metabólica e receber o relatório detalhado. <b>Nos informe seus dados para que possamos te enviar.</b></p>
+  <form name="contato" id="fContato" netlify netlify-honeypot="hp" onsubmit="return false">
+    <input type="hidden" name="form-name" value="contato"><input name="hp" style="display:none">
+    <label style="font-weight:800;color:var(--t2)">Seu melhor e-mail:</label>
+    <input class="field" id="email" name="email" type="email" placeholder="seuemail@email.com" autocomplete="email">
+    <label style="font-weight:800;color:var(--t2)">Seu WhatsApp:</label>
+    <input class="field" id="whats" name="whatsapp" type="tel" inputmode="tel" placeholder="(00) 00000-0000" autocomplete="tel">
+    <input type="hidden" name="nome" id="fNome"><input type="hidden" name="idade" id="fIdade">
+    <button class="btn" id="enviarContato" type="button">CONTINUAR</button>
+  </form>
+  <p class="note" id="cErr"></p>
+</section>
+
 <!-- 22 LOADING -->
 <section class="scr" data-s="loading">
   <div class="loading">
@@ -502,6 +517,7 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
     <ul class="steps" id="steps">
       <li>Analisando peso e altura</li><li>Cruzando sono, estresse e energia</li><li>Avaliando inchaço e intestino</li><li>Medindo a resposta à dieta</li><li>Montando seu plano 5 em 7</li>
     </ul>
+    <div class="card" id="rot" style="margin-top:22px;text-align:left;min-height:96px;transition:opacity .3s"></div>
   </div>
 </section>
 
@@ -626,12 +642,22 @@ $$('.scr[data-q]').forEach(function(s){
 $$('.chip').forEach(function(c){c.onclick=function(){c.classList.toggle('sel')}});
 var alt=$('#alt'),peso=$('#peso');
 alt.oninput=function(){$('#vAlt').textContent=alt.value}; peso.oninput=function(){$('#vPeso').textContent=peso.value};
-$('#calc').onclick=function(){ ans.nome=($('#nome').value||'').trim().split(' ')[0]; var ie=+$('#idadeExata').value; ans.idade=(ie>=18&&ie<=90)?ie:(ans.faixa||45); px('Lead'); $('#possNome').textContent=ans.nome?ans.nome+', ':''; next(); };
+$('#calc').onclick=function(){ ans.nome=($('#nome').value||'').trim().split(' ')[0]; var ie=+$('#idadeExata').value; ans.idade=(ie>=18&&ie<=90)?ie:(ans.faixa||45); $('#possNome').textContent=ans.nome?ans.nome+', ':''; next(); };
+$('#enviarContato').onclick=function(){
+  var e=$('#email').value.trim(), w=$('#whats').value.replace(/\D/g,'');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){$('#cErr').textContent='Digite um e-mail válido.';return}
+  if(w.length<10){$('#cErr').textContent='Digite seu WhatsApp com DDD.';return}
+  $('#cErr').textContent=''; $('#fNome').value=ans.nome||''; $('#fIdade').value=ans.idade||'';
+  try{fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData($('#fContato'))).toString()})}catch(x){}
+  px('Lead'); next();
+};
+var ROT=['<b>5 dias de jejum guiado + 2 de pausa</b><br>A maior parte da janela acontece enquanto você dorme.','<b>Cardápio de quebra do jejum</b><br>Refeições simples pra desinchar e segurar a fome.','<b>Sem remédio e sem academia</b><br>Só rotina, água e o horário certo de comer.','<b>Uma tarefa curta por dia</b><br>Pra você saber exatamente o que fazer em cada um dos 7 dias.'];
 function runLoading(){
+  var r=0; $('#rot').innerHTML=ROT[0]; var rt=setInterval(function(){r=(r+1)%ROT.length; $('#rot').style.opacity=0; setTimeout(function(){$('#rot').innerHTML=ROT[r];$('#rot').style.opacity=1},300)},1800);
   var p=0, li=$$('#steps li'); li.forEach(function(l){l.classList.remove('ok')});
   var t=setInterval(function(){p+=2; $('#ring').style.setProperty('--p',p); $('#ringN').textContent=p+'%';
     li.forEach(function(l,i){ if(p>=(i+1)*19)l.classList.add('ok') });
-    if(p>=100){clearInterval(t); setTimeout(irResultado,400)} },70);
+    if(p>=100){clearInterval(t); clearInterval(rt); setTimeout(irResultado,400)} },140);
 }
 var PERFIS={
  trav:{n:'Metabolismo Travado',d:'Seu corpo aprendeu a se defender: depois de tantas dietas, ele gasta menos e guarda mais. Por isso comer pouco não resolve e o peso volta.',s:['A dieta funciona cada vez menos','O peso volta (efeito sanfona)','Sensação de que o corpo "empacou"'],p:'O 5 em 7 alterna dias de jejum com 2 dias de pausa justamente pra não acionar o modo defesa que as dietas radicais acionam.'},
