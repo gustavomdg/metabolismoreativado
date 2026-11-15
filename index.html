@@ -175,6 +175,14 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
 </section>
 
 <!-- 2 INFO -->
+<section class="scr" data-s="prova">
+  <div class="card info"><div class="big">💚</div>
+    <h2 id="provaT" style="margin-bottom:6px">Você está no lugar certo</h2>
+    <p id="provaP">O Desafio Jejum 5 em 7 foi pensado pra rotina real de mulheres como você.</p>
+  </div>
+  <div style="height:22px"></div><button class="btn" data-next>Continuar</button>
+</section>
+
 <section class="scr" data-s="info1">
   <div class="card info"><div class="big">⏳</div>
     <h2 style="margin-bottom:6px">Depois dos 35, o corpo muda as regras do jogo</h2>
@@ -513,6 +521,8 @@ $$('.scr[data-q]').forEach(function(s){
     if(s.dataset.dim){ if(picked[key]!=null)ans.dims[s.dataset.dim]-=picked[key]; ans.dims[s.dataset.dim]+=v; }
     if(s.dataset.key)ans.keys[s.dataset.key]=v;
     if(key==='idade')ans.faixa=v;
+    if(key==='idade'){var PV={25:['Na casa dos 20','é a melhor hora de criar o hábito: quem reativa o metabolismo cedo não precisa correr atrás do prejuízo depois.'],35:['Na casa dos 30','o metabolismo começa a desacelerar devagar, e quase ninguém percebe. Este é o momento de virar o jogo.'],45:['Na casa dos 40','é quando o metabolismo mais desacelera. O Desafio Jejum 5 em 7 foi pensado exatamente pra essa fase.'],55:['Na casa dos 50','o corpo pede um ritmo diferente. O desafio respeita isso: 5 dias de janela e 2 dias livres.'],63:['Com mais de 60','dá sim pra reativar o metabolismo, no seu ritmo, com comida de verdade e sem passar fome.']}[v];
+      if(PV){$('#provaP').textContent=PV[0]+', '+PV[1];}}
     picked[key]=v; setTimeout(next,260);
   }});
 });
