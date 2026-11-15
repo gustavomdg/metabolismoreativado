@@ -84,6 +84,7 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
 .hero-photo .tag{position:absolute;left:12px;bottom:12px;background:var(--g);color:#fff;font-weight:800;font-size:13px;padding:7px 11px;border-radius:9px}
 .hero-photo .tag2{position:absolute;right:12px;top:12px;background:var(--y);color:var(--g);font-weight:900;font-size:13px;padding:7px 11px;border-radius:9px;transform:rotate(3deg)}
 .trust{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--mu);font-weight:600}
+.tl div{display:flex;border:2px solid #e9b8cf;border-radius:12px;overflow:hidden;margin:0 auto 14px;background:#fff;position:relative}.tl div:not(:last-child):after{content:"↓";position:absolute;left:30px;bottom:-17px;color:var(--t2);font-weight:900}.tl b{background:var(--t2);color:#fff;min-width:74px;display:grid;place-items:center;text-align:center;font-size:18px;line-height:1.05;padding:8px}.tl span{padding:12px;font-size:15px}.tl .ok{border-color:#7cc296}.tl .ok b{background:#3f9a5f}
 .loading{text-align:center;padding-top:30px}
 .ring{width:150px;height:150px;margin:0 auto 22px;border-radius:50%;background:conic-gradient(var(--t) calc(var(--p)*1%),#efe2d2 0);display:grid;place-items:center;--p:0}
 .ring div{width:122px;height:122px;border-radius:50%;background:var(--cr);display:grid;place-items:center;font-weight:900;font-size:32px;color:var(--g)}
@@ -524,6 +525,28 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
 
 <!-- 23 RESULTADO + OFERTA -->
 <section class="scr" data-s="resultado">
+  <div id="nvBox" style="border-radius:16px;padding:14px 10px;text-align:center;color:#fff;background:#3f9a5f">
+    <span id="nvN" style="display:inline-block;background:rgba(0,0,0,.18);padding:2px 10px;border-radius:6px;font-size:15px">nível 01</span>
+    <div id="nvT" style="font-weight:900;font-size:28px;letter-spacing:.5px;margin-top:4px">METABOLISMO JOVEM</div>
+  </div>
+  <h1 style="text-align:center;color:var(--t2);font-size:28px;margin:18px 0 6px"><span id="rNome"></span>sua idade metabólica é:<br><span id="rIdade">--</span> anos</h1>
+  <div style="border:2px solid #f2d27a;background:#fff8e6;color:#a8700b;border-radius:14px;padding:14px;text-align:center;font-weight:900;margin:14px 0">⚠️ INTERVENÇÃO NECESSÁRIA!</div>
+  <p id="nvTxt" style="font-size:16px"></p>
+  <div class="card" style="text-align:center;margin:18px 0"><p style="font-size:21px;font-weight:800;color:var(--g)">Você pode <span style="color:var(--t2)">reativar seu metabolismo em 1 semana</span> com o Desafio Jejum 5 em 7.</p><p class="note" id="rMetaPeso" style="margin-top:8px"></p></div>
+  <div class="tl">
+    <div><b>DIA<br>01</b><span>Mais energia e menos fome ao longo do dia</span></div>
+    <div><b>DIA<br>02</b><span>Ativação do metabolismo: o corpo começa a usar a reserva da barriga</span></div>
+    <div><b>DIA<br>03</b><span>Intestino regulando, pele melhorando e medidas começando a mudar</span></div>
+    <div><b>DIA<br>04</b><span>Menos inchaço e roupas começando a ficar mais folgadas</span></div>
+    <div><b>DIA<br>05</b><span>Barriga mais desinchada e muito mais disposição</span></div>
+    <div><b>DIA<br>06</b><span>Corpo mais leve, raciocínio e memória afiados</span></div>
+    <div class="ok"><b>DIA<br>07</b><span>Metabolismo reativado e rotina pronta pra continuar</span></div>
+  </div>
+  <p style="text-align:center;font-size:20px;font-weight:800;color:var(--t2);margin:22px 0 4px">+17.000 mulheres satisfeitas com o desafio.<br>Você pode ser a próxima!</p>
+  <p class="note" style="margin-top:0">Resultados variam de pessoa pra pessoa.</p>
+  <div style="height:14px"></div>
+  <a class="btn cta" href="#oferta" data-cta="resultado">Quero a intervenção do Jejum Metabólico para reativar meu metabolismo em 7 dias</a>
+  <div hidden>
   <div class="res-head">
     <span class="kicker">Seu resultado</span>
     <h1 id="rTitle">Ana, seu metabolismo tem 54 anos</h1>
@@ -553,7 +576,8 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
   <div style="height:20px"></div>
   <a class="btn cta" href="#oferta" data-cta="resultado">Quero meu plano de 7 dias →</a>
 
-  <div class="sec" id="oferta">
+  </div>
+<div class="sec" id="oferta">
     <p class="hand">apresentando</p>
     <h2 style="font-size:27px">Metabolismo Reativado · Desafio Jejum 5 em 7</h2>
     <p>Um plano de 7 dias, passo a passo, pra você <b>desinchar, controlar a vontade de doce e destravar a rotina</b> com um jejum que respeita a sua idade. Sem remédio, sem shake e sem passar o dia com fome.</p>
@@ -685,6 +709,13 @@ function buildResult(semPx){
   $('#planoD').textContent=intro+P.p;
   var f=ans.keys.fome, jan = f===0?'comer das 8h às 16h (você tem mais fome de manhã)':f===2?'comer das 12h às 20h (sua fome aperta à noite)':'comer das 10h às 18h';
   $('#janela').textContent='Sua janela sugerida no dia de 16 h: '+jan+'. O guia ajusta os outros dias.';
+  var NV= off<=3?['nível 01','METABOLISMO JOVEM','#3f9a5f','Seu metabolismo ainda responde, mas sem uma intervenção preventiva agora, <b>o declínio metabólico pode se instalar silenciosamente nos próximos meses.</b> O Desafio Jejum 5 em 7 foi criado exatamente pra quem está nesse momento: <b>blindar o que está bom e acelerar o que ainda pode melhorar, antes que o metabolismo comece a travar.</b>']
+   : off<=7?['nível 02','METABOLISMO DESACELERADO','#d9822b','Seu metabolismo já está mais lento do que deveria pra sua idade, e <b>é por isso que o corpo segura mais, incha mais e responde menos às dietas.</b> O Desafio Jejum 5 em 7 foi criado pra quem está nesse momento: <b>reativar o ritmo do metabolismo em 7 dias, antes que ele trave de vez.</b>']
+   : ['nível 03','METABOLISMO TRAVADO','#c0392b','Seu metabolismo está funcionando como o de alguém bem mais velho que você, e <b>é por isso que nada parece funcionar: o corpo entrou em modo defesa.</b> O Desafio Jejum 5 em 7 foi criado exatamente pra destravar esse quadro: <b>tirar o corpo do modo defesa e reativar o metabolismo dia após dia.</b>'];
+  $('#nvN').textContent=NV[0]; $('#nvT').textContent=NV[1]; $('#nvBox').style.background=NV[2]; $('#nvTxt').innerHTML=NV[3];
+  $('#rNome').textContent=ans.nome?ans.nome+', ':''; $('#rIdade').textContent=meta;
+  var PP=['até 5 kg','entre 5 e 10 kg','entre 11 e 15 kg','entre 15 e 20 kg'][ans.keys.perder];
+  $('#rMetaPeso').textContent=PP?'Sua meta: perder '+PP+'. A primeira semana é o começo dessa virada.':'';
   ans.meta=meta; ans.perfil=order[0];
   if(!semPx)px('ViewContent',{content_name:'Metabolismo Reativado',value:+C.PRECO,currency:'BRL'});
 }
