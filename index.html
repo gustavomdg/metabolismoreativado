@@ -58,6 +58,12 @@ h2{font-weight:800;font-size:23px;line-height:1.18;color:var(--g);letter-spacing
 .age b{display:block;font-size:30px;font-weight:900;letter-spacing:-1px}
 .age span{font-size:13px;color:var(--mu);font-weight:600}
 .age:hover{border-color:var(--t)}
+.agef{padding:0;overflow:hidden;text-align:left;display:flex;flex-direction:column}
+.agef img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 8%;display:block;background:#eee}
+.agef .al{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:11px 12px;font-size:14px;font-weight:700;color:var(--g);background:var(--cr)}
+.agef .al i{font-style:normal;border:2px solid var(--g);border-radius:7px;width:26px;height:26px;display:grid;place-items:center;font-size:12px;flex:none}
+.agef.sel{border-color:var(--t)}
+
 .chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:22px}
 .chip{border:2px solid var(--ln);background:var(--w);border-radius:40px;padding:11px 16px;font-weight:700;font-size:15px;color:var(--tx)}
 .chip.sel{background:var(--g);border-color:var(--g);color:#fff}
@@ -166,17 +172,17 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
 <section class="scr" data-s="idade" data-q>
   <h2>Qual a sua faixa de idade?</h2>
   <div class="grid2">
-    <button class="age" data-v="25"><b>18–29</b><span>anos</span></button>
-    <button class="age" data-v="35"><b>30–39</b><span>anos</span></button>
-    <button class="age" data-v="45"><b>40–49</b><span>anos</span></button>
-    <button class="age" data-v="55"><b>50–59</b><span>anos</span></button>
-    <button class="age" data-v="63" style="grid-column:1/3"><b>60+</b><span>anos</span></button>
+    <button class="age agef" data-v="25" data-img="1"><img src="/img/idade-1.jpg" alt=""><span class="al">De 18 a 29 anos<i>A</i></span></button>
+    <button class="age agef" data-v="35" data-img="2"><img src="/img/idade-2.jpg" alt=""><span class="al">De 30 a 39 anos<i>B</i></span></button>
+    <button class="age agef" data-v="45" data-img="3"><img src="/img/idade-3.jpg" alt=""><span class="al">De 40 a 49 anos<i>C</i></span></button>
+    <button class="age agef" data-v="55" data-img="4"><img src="/img/idade-4.jpg" alt=""><span class="al">De 50 a 59 anos<i>D</i></span></button>
+    <button class="age agef" data-v="63" data-img="5"><img src="/img/idade-5.jpg" alt=""><span class="al">Mais de 60 anos<i>E</i></span></button>
   </div>
 </section>
 
 <!-- 2 INFO -->
 <section class="scr" data-s="prova">
-  <div class="card info"><div class="big">💚</div>
+  <div class="card info"><img id="provaImg" src="/img/idade-3.jpg" alt="" style="width:62%;max-width:240px;aspect-ratio:3/4;object-fit:cover;object-position:center 8%;border-radius:16px;display:block;margin:0 auto 14px">
     <h2 id="provaT" style="margin-bottom:6px">Você está no lugar certo</h2>
     <p id="provaP">O Desafio Jejum 5 em 7 foi pensado pra rotina real de mulheres como você.</p>
   </div>
@@ -522,6 +528,7 @@ $$('.scr[data-q]').forEach(function(s){
     if(s.dataset.key)ans.keys[s.dataset.key]=v;
     if(key==='idade')ans.faixa=v;
     if(key==='idade'){var PV={25:['Na casa dos 20','é a melhor hora de criar o hábito: quem reativa o metabolismo cedo não precisa correr atrás do prejuízo depois.'],35:['Na casa dos 30','o metabolismo começa a desacelerar devagar, e quase ninguém percebe. Este é o momento de virar o jogo.'],45:['Na casa dos 40','é quando o metabolismo mais desacelera. O Desafio Jejum 5 em 7 foi pensado exatamente pra essa fase.'],55:['Na casa dos 50','o corpo pede um ritmo diferente. O desafio respeita isso: 5 dias de janela e 2 dias livres.'],63:['Com mais de 60','dá sim pra reativar o metabolismo, no seu ritmo, com comida de verdade e sem passar fome.']}[v];
+      if(b.dataset.img)$('#provaImg').src='/img/idade-'+b.dataset.img+'.jpg';
       if(PV){$('#provaP').textContent=PV[0]+', '+PV[1];}}
     picked[key]=v; setTimeout(next,260);
   }});
