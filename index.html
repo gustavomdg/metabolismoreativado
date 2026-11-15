@@ -438,6 +438,14 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
   </div>
 </section>
 
+<section class="scr" data-s="nome">
+  <h2>Como você se chama?</h2>
+  <input class="field" id="nome" placeholder="Seu primeiro nome" autocomplete="given-name" maxlength="30">
+  <input class="field" id="idadeExata" type="number" inputmode="numeric" placeholder="Sua idade (ex.: 46)" min="18" max="90">
+  <button class="btn" id="calc">Continuar</button>
+  <p class="note">Usamos só pra montar o seu resultado. Nada é enviado.</p>
+</section>
+
 <section class="scr" data-s="perder" data-q data-key="perder">
   <h2>Quanto você quer ou precisa perder de peso?</h2>
   <div class="opts">
@@ -449,12 +457,11 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
 </section>
 
 <!-- 21 NOME -->
-<section class="scr" data-s="nome">
-  <h2>Pra finalizar: como você se chama?</h2>
-  <input class="field" id="nome" placeholder="Seu primeiro nome" autocomplete="given-name" maxlength="30">
-  <input class="field" id="idadeExata" type="number" inputmode="numeric" placeholder="Sua idade (ex.: 46)" min="18" max="90">
-  <button class="btn" id="calc">Ver meu resultado</button>
-  <p class="note">Usamos só pra montar o seu resultado. Nada é enviado.</p>
+<section class="scr" data-s="possivel">
+  <h2 style="color:var(--t2)"><span id="possNome"></span>sua meta é totalmente possível!!!</h2>
+  <p class="sub" style="text-align:center">Com o Desafio Jejum 5 em 7 você começa pelo que mais trava o seu metabolismo, no seu ritmo.</p>
+  <img src="/img/mockup.png" alt="" style="width:100%;max-width:360px;display:block;margin:12px auto;border-radius:14px">
+  <button class="btn" data-next>CONTINUAR</button>
 </section>
 
 <section class="scr" data-s="sintomas" data-q data-dim="estr">
@@ -619,7 +626,7 @@ $$('.scr[data-q]').forEach(function(s){
 $$('.chip').forEach(function(c){c.onclick=function(){c.classList.toggle('sel')}});
 var alt=$('#alt'),peso=$('#peso');
 alt.oninput=function(){$('#vAlt').textContent=alt.value}; peso.oninput=function(){$('#vPeso').textContent=peso.value};
-$('#calc').onclick=function(){ ans.nome=($('#nome').value||'').trim().split(' ')[0]; var ie=+$('#idadeExata').value; ans.idade=(ie>=18&&ie<=90)?ie:(ans.faixa||45); px('Lead'); next(); };
+$('#calc').onclick=function(){ ans.nome=($('#nome').value||'').trim().split(' ')[0]; var ie=+$('#idadeExata').value; ans.idade=(ie>=18&&ie<=90)?ie:(ans.faixa||45); px('Lead'); $('#possNome').textContent=ans.nome?ans.nome+', ':''; next(); };
 function runLoading(){
   var p=0, li=$$('#steps li'); li.forEach(function(l){l.classList.remove('ok')});
   var t=setInterval(function(){p+=2; $('#ring').style.setProperty('--p',p); $('#ringN').textContent=p+'%';
