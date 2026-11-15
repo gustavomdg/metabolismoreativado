@@ -13,7 +13,7 @@
 /* ===== CONFIG (só mexer aqui) ===== */
 window.M30 = {
   CHECKOUT_URL: "https://pay.cakto.com.br/mjqsj7h_1323764",          // link do checkout Cakto do produto principal (R$ 27). Vazio = botão mostra aviso.
-  META_PIXEL_ID: "",         // ID do pixel/conjunto de dados do Meta. Vazio = pixel desligado.
+  META_PIXEL_ID: "4471559289760758",         // ID do pixel/conjunto de dados do Meta. Vazio = pixel desligado.
   PRECO: "27",
   PRECO_DE: "97"
 };
@@ -158,7 +158,7 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
   <h1 style="text-align:center;margin-top:4px">Qual a idade do <span class="hl">seu metabolismo</span>?</h1>
   <div class="hero-photo"><img src="/img/1181686.jpg" alt="Mulher sorrindo"><span class="tag">Idade real: 47</span><span class="tag2">Metabolismo: ?</span></div>
   <p class="lead" style="text-align:center;margin-bottom:20px">Responda 20 perguntas rápidas e descubra se o seu metabolismo está <b>mais velho que você</b> e o que fazer nos próximos 7 dias.</p>
-  <button class="btn" data-next>Fazer o teste agora →</button>
+  <button class="btn" id="comecar">Fazer o teste agora →</button>
   <div class="trust"><span>✓ Gratuito</span><span>✓ Resultado na hora</span><span>✓ Sem cadastro</span></div>
 </section>
 
@@ -559,13 +559,22 @@ var SLUG={trav:'travado',inch:'inchado',doce:'viciado-em-doce',estr:'estressado'
 function irResultado(){
   buildResult(true);
   try{sessionStorage.setItem('mr_quiz',JSON.stringify({ans:ans,alt:alt.value,peso:peso.value}))}catch(e){}
-  location.href='/resultado/'+SLUG[ans.perfil]+'/'+location.search;
+  var q=new URLSearchParams(location.search); q.set('perfil',SLUG[ans.perfil]);
+  location.href='/resultado/?'+q.toString();
 }
+/* checkpoints: / = chegada, /quiz = iniciou, /resultado = finalizou */
+$('#comecar').onclick=function(){location.href='/quiz/'+location.search};
 (function(){
-  var m=location.pathname.match(/^\/resultado\/([a-z-]+)/); if(!m)return;
+  var path=location.pathname;
+  if(/^\/quiz/.test(path)){
+    try{if(window.fbq)fbq('trackCustom','QuizIniciado')}catch(e){}
+    show(1,false); hist=[]; return;
+  }
+  if(!/^\/resultado/.test(path))return;
   var st=null; try{st=JSON.parse(sessionStorage.getItem('mr_quiz'))}catch(e){}
   if(!st){location.replace('/'+location.search);return}
   ans=st.ans; alt.value=st.alt; peso.value=st.peso;
+  try{if(window.fbq)fbq('trackCustom','QuizFinalizado',{perfil:ans.perfil})}catch(e){}
   buildResult();
   var ri=scr.findIndex(function(x){return x.dataset.s==='resultado'});
   show(ri,false); $('#bar').style.width='100%';
