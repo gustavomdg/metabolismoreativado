@@ -10,10 +10,10 @@
 <script>
 /* ===== CONFIG (só mexer aqui) ===== */
 window.MR_UP = {
-  UPSELL_CHECKOUT_URL: "",   // link do checkout Cakto da Fase 2 (R$ 37). Se usar o upsell 1 clique da Cakto, cole o código dela no bloco #cakto-upsell abaixo.
+  UPSELL_CHECKOUT_URL: "",   // link do checkout Cakto do Chá Fome Zero (R$ 37,90). Se usar o upsell 1 clique da Cakto, cole o código dela no bloco #cakto-upsell abaixo.
   OBRIGADO_URL: "../obrigado/",
-  META_PIXEL_ID: "",
-  PRECO: "37",
+  META_PIXEL_ID: "4471559289760758",
+  PRECO: "37,90",
   PRECO_DE: "97"
 };
 </script>
@@ -61,37 +61,37 @@ h1{font-weight:900;font-size:30px;line-height:1.08;color:var(--g);letter-spacing
   <div class="prog"><i></i><i></i><i class="off"></i></div>
   <small>Etapa 2 de 3 · seu pedido está quase completo</small>
 
-  <h1>Seu desafio de 7 dias está garantido. <span class="hl">Agora fixe o resultado.</span></h1>
-  <p class="lead">7 dias destravam. 21 dias fixam. A Fase 2 pega o ritmo do Desafio Jejum 5 em 7 e transforma em rotina, semana a semana, pra você não voltar pro efeito sanfona.</p>
+  <h1>Seu desafio de 7 dias está garantido. <span class="hl">Agora controle a fome de dentro pra fora.</span></h1>
+  <p class="lead">O <b>Chá Fome Zero</b> é o guia de protocolo que acompanha o seu jejum: os chás e a rotina certa pra ajudar a regular a fome e os hormônios do apetite, começando já nos mesmos 7 dias do desafio.</p>
 
-  <img class="cover" src="../img/capa-upsell.png" alt="Metabolismo Reativado · Fase 2: 21 Dias Sem Sanfona">
+  
 
   <div class="card">
-    <h2>O que vem na Fase 2</h2>
+    <h2>O que vem no Chá Fome Zero</h2>
     <ul>
-      <li>3 semanas de jejum progressivo, com o horário de cada dia</li>
-      <li>Metas semanais simples (uma por vez)</li>
-      <li>Cardápio-base pra repetir sem pensar</li>
-      <li>Plano pra festas, viagens e fim de semana</li>
-      <li>Diário de 21 dias pra marcar o progresso</li>
+      <li>O protocolo de chás passo a passo, com o horário de cada um</li>
+      <li>Como usar os chás pra atravessar a janela de jejum com menos fome</li>
+      <li>Rotina simples pra ajudar a regular os hormônios da fome e da saciedade</li>
+      <li>Lista de ingredientes de mercado comum</li>
+      <li>Começa junto com o desafio, a partir do dia 1</li>
     </ul>
   </div>
 
   <div class="cmp">
-    <div class="a"><b>Só 7 dias</b>Você destrava, mas sem plano depois a rotina antiga volta</div>
-    <div class="b"><b>7 + 21 dias</b>O desafio vira hábito e você sabe exatamente o que fazer</div>
+    <div class="a"><b>Só o desafio</b>Você segue o jejum contando só com a força de vontade quando a fome aperta</div>
+    <div class="b"><b>Desafio + Chá Fome Zero</b>Você tem um protocolo pronto pros momentos de fome e chega mais fácil ao dia 7</div>
   </div>
 
   <div class="price">
-    <s>De R$ <span class="pDe">97</span></s>
+    
     <span class="n"><small>R$</small> <span class="pPor">37</span></span>
-    <em>Só nesta página · pagamento único</em>
+    <em>Pagamento único · entra junto com o seu pedido</em>
   </div>
 
   <div id="cakto-upsell"><!-- cole aqui o código do upsell 1 clique da Cakto --></div>
-  <a class="btn" id="sim" href="#">SIM, QUERO A FASE 2 →</a>
+  <a class="btn" id="sim" href="#">SIM, QUERO O CHÁ FOME ZERO →</a>
   <p class="hand">entra direto na sua área de membros</p>
-  <a class="no" id="nao" href="../obrigado/">Não, obrigada. Vou fazer só os 7 dias.</a>
+  <a class="no" id="nao" href="../obrigado/">Não, obrigada. Vou fazer só o desafio.</a>
 
   <p class="fine">Conteúdo educativo de rotina alimentar. Não substitui acompanhamento médico ou nutricional. Resultados variam de pessoa pra pessoa.</p>
 </div>
@@ -104,8 +104,8 @@ document.getElementById('nao').href=U.OBRIGADO_URL;
 var sim=document.getElementById('sim');
 if(document.getElementById('cakto-upsell').children.length){sim.style.display='none';}
 sim.addEventListener('click',function(ev){ev.preventDefault();
-  if(!U.UPSELL_CHECKOUT_URL){alert('Link do checkout da Fase 2 ainda não configurado.');return;}
-  try{if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Fase 2',value:+U.PRECO,currency:'BRL'})}catch(e){}
+  if(!U.UPSELL_CHECKOUT_URL){alert('Link do checkout do Chá Fome Zero ainda não configurado.');return;}
+  try{if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Cha Fome Zero',value:37.90,currency:'BRL'})}catch(e){}
   location.href=U.UPSELL_CHECKOUT_URL+(location.search?(U.UPSELL_CHECKOUT_URL.indexOf('?')>-1?'&':'?')+location.search.slice(1):'');
 });
 </script>
