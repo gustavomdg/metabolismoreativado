@@ -499,7 +499,7 @@ input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px
 <section class="scr" data-s="contato">
   <h2 style="color:var(--t2)">Pronto!</h2>
   <p class="sub" style="text-align:center">Chegou a hora de descobrir sua Idade Metabólica e receber o relatório detalhado. <b>Nos informe seus dados para que possamos te enviar.</b></p>
-  <form name="contato" id="fContato" netlify netlify-honeypot="hp" onsubmit="return false">
+  <form name="contato" id="fContato" method="POST" data-netlify="true" netlify netlify-honeypot="hp" onsubmit="return false">
     <input type="hidden" name="form-name" value="contato"><input name="hp" style="display:none">
     <label style="font-weight:800;color:var(--t2)">Seu melhor e-mail:</label>
     <input class="field" id="email" name="email" type="email" placeholder="seuemail@email.com" autocomplete="email">
