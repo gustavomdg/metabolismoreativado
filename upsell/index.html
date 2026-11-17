@@ -99,13 +99,11 @@ h1{font-weight:900;font-size:30px;line-height:1.08;color:var(--g);letter-spacing
 var U=window.MR_UP;
 document.querySelectorAll('.pPor').forEach(function(e){e.textContent=U.PRECO});
 document.querySelectorAll('.pDe').forEach(function(e){e.textContent=U.PRECO_DE});
-if(U.META_PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',U.META_PIXEL_ID);fbq('track','PageView');}
 document.getElementById('nao').href=U.OBRIGADO_URL;
 var sim=document.getElementById('sim');
 if(document.getElementById('cakto-upsell').children.length){sim.style.display='none';}
 sim.addEventListener('click',function(ev){ev.preventDefault();
   if(!U.UPSELL_CHECKOUT_URL){alert('Link do checkout do Chá Fome Zero ainda não configurado.');return;}
-  try{if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Cha Fome Zero',value:37.90,currency:'BRL'})}catch(e){}
   location.href=U.UPSELL_CHECKOUT_URL+(location.search?(U.UPSELL_CHECKOUT_URL.indexOf('?')>-1?'&':'?')+location.search.slice(1):'');
 });
 </script>
