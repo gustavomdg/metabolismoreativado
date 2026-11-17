@@ -650,7 +650,7 @@ var scr=$$('.scr'), cur=0, hist=[], ans={dims:{trav:0,inch:0,doce:0,estr:0},keys
 var QTOTAL=scr.length-2;
 /* pixel */
 if(C.META_PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',C.META_PIXEL_ID);fbq('track','PageView');}
-function px(ev,data){try{if(window.fbq)fbq('track',ev,data||{})}catch(e){}}
+function px(ev,data,n){n=n||0;try{if(window.fbq){var std=/^(PageView|ViewContent|Lead|InitiateCheckout|Purchase|AddToCart|CompleteRegistration)$/.test(ev);fbq(std?'track':'trackCustom',ev,data||{})}else if(n<40)setTimeout(function(){px(ev,data,n+1)},250)}catch(e){}}
 $$('.pPor').forEach(function(e){e.textContent=C.PRECO}); $$('.pDe').forEach(function(e){e.textContent=C.PRECO_DE});
 function show(i,push){ if(push!==false)hist.push(cur); scr[cur].classList.remove('on'); cur=i; scr[cur].classList.add('on');
   $('#bar').style.width=Math.min(100,Math.round(cur/(scr.length-1)*100))+'%';
@@ -744,14 +744,14 @@ $('#comecar').onclick=function(){location.href='/quiz/'+location.search};
 (function(){
   var path=location.pathname;
   if(/^\/quiz/.test(path)){
-    try{if(window.fbq)fbq('trackCustom','QuizIniciado')}catch(e){}
+    px('QuizIniciado');
     show(1,false); hist=[]; return;
   }
   if(!/^\/resultado/.test(path))return;
   var st=null; try{st=JSON.parse(sessionStorage.getItem('mr_quiz'))}catch(e){}
   if(!st){location.replace('/'+location.search);return}
   ans=st.ans; alt.value=st.alt; peso.value=st.peso;
-  try{if(window.fbq)fbq('trackCustom','QuizFinalizado',{perfil:ans.perfil})}catch(e){}
+  px('QuizFinalizado',{perfil:ans.perfil});
   buildResult();
   var ri=scr.findIndex(function(x){return x.dataset.s==='resultado'});
   show(ri,false); $('#bar').style.width='100%';
