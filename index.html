@@ -652,6 +652,7 @@ var QTOTAL=scr.length-2;
 function px(ev,data,n){n=n||0;try{if(window.fbq){var std=/^(PageView|ViewContent|Lead|InitiateCheckout|Purchase|AddToCart|CompleteRegistration)$/.test(ev);fbq(std?'track':'trackCustom',ev,data||{})}else if(n<40)setTimeout(function(){px(ev,data,n+1)},250)}catch(e){}}
 $$('.pPor').forEach(function(e){e.textContent=C.PRECO}); $$('.pDe').forEach(function(e){e.textContent=C.PRECO_DE});
 function show(i,push){ if(push!==false)hist.push(cur); scr[cur].classList.remove('on'); cur=i; scr[cur].classList.add('on');
+  try{window._etSeen=window._etSeen||{};var _et=scr[cur].dataset.s;if(_et&&!window._etSeen[_et]){window._etSeen[_et]=1;var _c=(new URLSearchParams(location.search).get('utm_campaign')||'').split('|');px('QuizEtapa',{etapa:('0'+cur).slice(-2)+'_'+_et,campanha:_c[0]||'organico',campanha_id:_c[1]||''})}}catch(e){}
   $('#bar').style.width=Math.min(100,Math.round(cur/(scr.length-1)*100))+'%';
   $('#back').style.visibility=(cur>0&&scr[cur].dataset.s!=='loading'&&scr[cur].dataset.s!=='resultado')?'visible':'hidden';
   window.scrollTo(0,0);
