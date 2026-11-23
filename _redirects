@@ -1,3 +1,7 @@
+/jejum-noturno/quiz      /jejum-noturno/index.html  200
+/jejum-noturno/quiz/*    /jejum-noturno/index.html  200
+/jejum-noturno/resultado   /jejum-noturno/index.html  200
+/jejum-noturno/resultado/* /jejum-noturno/index.html  200
 /quiz      /index.html  200
 /quiz/*    /index.html  200
 /resultado   /index.html  200
