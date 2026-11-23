@@ -375,7 +375,7 @@ function show(i,push){ if(push!==false)hist.push(cur); scr[cur].classList.remove
   $('#sticky').classList.toggle('on',s==='resultado');
 }
 $('#back').onclick=function(){if(hist.length){show(hist.pop(),false)}};
-$('#comecar').onclick=function(){px('QuizIniciado');show(1)};
+$('#comecar').onclick=function(){location.href='/jejum-noturno/quiz/'+location.search};
 $$('.scr[data-q]').forEach(function(s){
   $$('.opt',s).forEach(function(b){b.onclick=function(){
     $$('.opt',s).forEach(function(x){x.classList.remove('sel')}); b.classList.add('sel');
@@ -386,7 +386,7 @@ function runLoading(){
   var p=0, li=$$('#steps li'); li.forEach(function(l){l.classList.remove('ok')});
   var t=setInterval(function(){p+=2; $('#ring').style.setProperty('--p',p); $('#ringN').textContent=p+'%';
     li.forEach(function(l,i){ if(p>=(i+1)*19)l.classList.add('ok') });
-    if(p>=100){clearInterval(t); setTimeout(function(){buildResult(); show(cur+1)},400)} },110);
+    if(p>=100){clearInterval(t); setTimeout(irResultado,400)} },110);
 }
 var PERFIS={
  cozinha:{n:'Cozinha Aberta',d:'O seu belisco acontece porque a cozinha nunca fecha de verdade. O jantar acaba, mas a comida continua à vista e à mão até a hora de deitar.',s:['Belisca enquanto arruma a cozinha','Vai à geladeira "só pra ver" antes de deitar','Come o que sobrou do jantar'],f:[2,3]},
@@ -415,8 +415,32 @@ function buildResult(){
   var f=ans.frequencia, n=['algumas','1 a 2','3 a 5','quase todas as'][f];
   $('#rAlert').textContent=f>=2?'Você belisca depois do jantar em '+n+' noites da semana. Sem um roteiro para esse horário, a tendência é o hábito continuar igual.':'Mesmo beliscando pouco, ter um horário de corte evita que o hábito cresça nas semanas mais cansativas.';
   $$('#passos li').forEach(function(li){li.classList.toggle('foco',P.f.indexOf(+li.dataset.p)>=0)});
-  ans.perfil=k; px('ViewContent',{content_name:'Protocolo Jejum Noturno',value:+C.PRECO,currency:'BRL'}); px('QuizFinalizado',{perfil:k});
+  ans.perfil=k;
 }
+/* funil: /jejum-noturno/ = página inicial, /quiz/ = início, fim das perguntas = QuizFinalizado, /resultado/ = página de resultado */
+var SLUG={cozinha:'cozinha-aberta',sofa:'belisco-do-sofa',doce:'ciclo-do-doce',tardio:'horario-tardio'};
+function irResultado(){
+  buildResult();
+  px('QuizFinalizado',{perfil:ans.perfil});
+  try{sessionStorage.setItem('pjn_quiz',JSON.stringify(ans))}catch(e){}
+  var q=new URLSearchParams(location.search); q.set('perfil',SLUG[ans.perfil]);
+  setTimeout(function(){location.href='/jejum-noturno/resultado/?'+q.toString()},300);
+}
+(function(){
+  var path=location.pathname;
+  if(/^\/jejum-noturno\/quiz/.test(path)){ px('QuizIniciado'); show(1,false); hist=[]; return; }
+  if(/^\/jejum-noturno\/resultado/.test(path)){
+    var st=null; try{st=JSON.parse(sessionStorage.getItem('pjn_quiz'))}catch(e){}
+    if(!st){location.replace('/jejum-noturno/'+location.search);return}
+    ans=st; buildResult();
+    var ri=scr.findIndex(function(x){return x.dataset.s==='resultado'});
+    show(ri,false); $('#bar').style.width='100%';
+    px('ResultadoVisto',{perfil:ans.perfil});
+    px('ViewContent',{content_name:'Protocolo Jejum Noturno',value:+C.PRECO,currency:'BRL'});
+    return;
+  }
+  px('PaginaInicial');
+})();
 function checkoutUrl(){
   if(!C.CHECKOUT_URL)return '';
   var u=new URL(C.CHECKOUT_URL), q=new URLSearchParams(location.search);
