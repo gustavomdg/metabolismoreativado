@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Protocolo Jejum Noturno</title>
+<style>
+@font-face{font-family:M;src:url(../../fonts/montserrat-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:M;src:url(../../fonts/montserrat-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:M;src:url(../../fonts/montserrat-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:M;src:url(../../fonts/montserrat-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:M;src:url(../../fonts/montserrat-latin-900-normal.woff2);font-weight:900}
+@font-face{font-family:C;src:url(../../fonts/Caveat-600n-latin.woff2);font-weight:600}
+@font-face{font-family:C;src:url(../../fonts/Caveat-600n-latin-ext.woff2);font-weight:600;unicode-range:U+0100-024F}
+:root{--g:#16352B;--g2:#24503F;--t:#FF6A3D;--cr:#FFF6EC;--y:#FFD36E;--mt:#CDEBD8;--tx:#1d2a24;--mu:#5d6b64;--ln:#ead9c6}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:M,sans-serif;color:var(--tx);font-size:11.5pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{width:210mm;height:297mm;padding:20mm 18mm 18mm;position:relative;overflow:hidden;page-break-after:always;background:var(--cr)}
+.pg:last-child{page-break-after:auto}
+.pg .num{position:absolute;bottom:9mm;left:18mm;right:18mm;display:flex;justify-content:space-between;font-size:8pt;color:var(--mu);border-top:1px solid var(--ln);padding-top:3mm}
+.kick{font-size:8.5pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--t);margin-bottom:3mm}
+h1{font-size:30pt;font-weight:900;line-height:1.05;color:var(--g)}
+h2{font-size:21pt;font-weight:900;line-height:1.12;color:var(--g);margin-bottom:5mm}
+h3{font-size:12.5pt;font-weight:800;color:var(--g);margin:5mm 0 2mm}
+p{margin-bottom:3mm}
+.hand{font-family:C,cursive;font-size:17pt;color:var(--t);line-height:1.1}
+.lead{font-size:13pt;color:var(--g2);font-weight:600}
+.box{background:#fff;border:1.5px solid var(--ln);border-radius:4mm;padding:5mm 6mm;margin:4mm 0}
+.box.g{background:var(--g);color:#fff;border-color:var(--g)}
+.box.g h3,.box.g b{color:var(--y)}
+.box.m{background:var(--mt);border-color:#b5dcc4}
+.box.y{background:#FFF0C8;border-color:#f3d98d}
+ul.c{list-style:none}
+ul.c li{padding-left:7mm;position:relative;margin-bottom:2mm}
+ul.c li:before{content:"";position:absolute;left:0;top:1.2mm;width:3.4mm;height:3.4mm;border:1.6px solid var(--g);border-radius:1mm;background:#fff}
+ul.d{padding-left:5mm}ul.d li{margin-bottom:1.6mm}
+.step{display:flex;gap:5mm;margin-bottom:4.2mm;align-items:flex-start}
+.step .n{flex:0 0 11mm;height:11mm;border-radius:50%;background:var(--t);color:#fff;font-weight:900;font-size:15pt;display:flex;align-items:center;justify-content:center}
+.step h4{font-size:12pt;font-weight:800;color:var(--g);margin-bottom:1mm}
+.step p{margin:0;font-size:10.5pt}
+.step .why{font-size:9.5pt;color:var(--mu);margin-top:1mm}
+table{width:100%;border-collapse:collapse;font-size:10pt;background:#fff}
+th,td{border:1px solid var(--ln);padding:2.2mm 2.6mm;text-align:left;vertical-align:top}
+th{background:var(--g);color:#fff;font-weight:700}
+.lines div{border-bottom:1px solid var(--ln);height:8mm}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.tag{display:inline-block;background:var(--t);color:#fff;font-weight:800;font-size:8.5pt;padding:1mm 3mm;border-radius:10mm;margin-bottom:2mm}
+.night-h{display:flex;align-items:baseline;gap:4mm;margin-bottom:2mm}
+.night-h .big{font-size:44pt;font-weight:900;color:var(--t);line-height:1}
+.small{font-size:9pt;color:var(--mu)}
+/* capa */
+.cover{background:var(--g);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:26mm 20mm}
+.cover h1{color:#fff;font-size:44pt}
+.cover .hand{color:var(--y);font-size:26pt;margin-top:4mm}
+.cover .moon{width:46mm;height:46mm;border-radius:50%;background:var(--y);box-shadow:-11mm -4mm 0 0 var(--g) inset;margin-bottom:12mm}
+.cover .sub{font-size:14pt;font-weight:600;margin-top:10mm;max-width:150mm;color:#e9f5ee}
+.cover .foot{font-size:9pt;color:#a9c9b8;border-top:1px solid #2f5e4b;padding-top:5mm}
+.toc li{display:flex;justify-content:space-between;border-bottom:1px dashed var(--ln);padding:2.4mm 0;font-weight:600}
+.toc li span:last-child{color:var(--t);font-weight:800}
+</style>
+</head>
+<body>
+
+<!-- 1 CAPA -->
+<section class="pg cover">
+  <div>
+    <div class="moon"></div>
+    <div class="kick" style="color:var(--y)">Fechamento Noturno · 5 noites guiadas + 2 de pausa</div>
+    <h1>Protocolo<br>Jejum Noturno</h1>
+    <div class="hand">feche a cozinha, feche o dia</div>
+    <p class="sub">O roteiro para quem termina o jantar e continua beliscando até a hora de dormir.</p>
+  </div>
+  <div class="foot">Material de apoio a hábitos. Não substitui orientação profissional. Leia o aviso da página 2 antes de começar.</div>
+</section>
+
+<!-- 2 COMO USAR -->
+<section class="pg">
+  <div class="kick">Antes de começar</div>
+  <h2>Como usar este protocolo</h2>
+  <p class="lead">Este material não é uma dieta. Ele não diz o que você come no jantar. Ele organiza o que acontece <b>depois</b> do jantar, que é onde o belisco mora.</p>
+  <ol class="toc" style="list-style:none;margin:6mm 0">
+    <li><span>Por que o belisco acontece depois do jantar</span><span>3</span></li>
+    <li><span>Encontre o seu horário de corte</span><span>4</span></li>
+    <li><span>Os 7 passos do Fechamento Noturno</span><span>5</span></li>
+    <li><span>Seu perfil: onde colocar mais atenção</span><span>7</span></li>
+    <li><span>Noites 1 a 5: o roteiro guiado</span><span>8</span></li>
+    <li><span>Respostas prontas para a vontade de beliscar</span><span>13</span></li>
+    <li><span>As 2 noites de pausa</span><span>14</span></li>
+    <li><span>Registro da semana</span><span>15</span></li>
+    <li><span>Depois da primeira semana</span><span>16</span></li>
+  </ol>
+  <div class="box m">
+    <h3 style="margin-top:0">Em 3 linhas</h3>
+    <ul class="d">
+      <li>Escolha um horário de corte e feche a cozinha nele.</li>
+      <li>Siga os 7 passos nas 5 noites guiadas da semana.</li>
+      <li>Nas 2 noites de pausa, viva normalmente. A pausa faz parte do método.</li>
+    </ul>
+  </div>
+  <div class="box y">
+    <h3 style="margin-top:0">Aviso importante</h3>
+    <p style="margin:0;font-size:10pt">Se você tem diabetes, usa medicação contínua, está grávida ou amamentando, ou tem histórico de transtorno alimentar, converse com um profissional de saúde antes de fazer qualquer tipo de jejum. Se sentir tontura, fraqueza ou mal-estar, coma algo e interrompa o protocolo.</p>
+  </div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>2</span></div>
+</section>
+
+<!-- 3 POR QUE -->
+<section class="pg">
+  <div class="kick">O problema</div>
+  <h2>Você termina o jantar e continua beliscando até dormir</h2>
+  <p>Um biscoito enquanto lava a louça. Um pedaço de chocolate no sofá. Uma ida à geladeira antes de deitar. Nenhum desses beliscos parece uma refeição. Somados, viram um <b>segundo jantar</b> que você nem percebe que comeu.</p>
+  <h3>Não é falta de força de vontade</h3>
+  <p>O belisco noturno tem três motivos que se repetem em quase todo mundo:</p>
+  <div class="box">
+    <p><b>1. A noite não tem um fim combinado.</b> O almoço acaba porque você volta ao trabalho. O jantar não acaba: a cozinha continua aberta e a comida continua à vista.</p>
+    <p><b>2. Cansaço e tela.</b> Você está parada(o), cansada(o), na frente da TV ou do celular. A mão procura alguma coisa pra fazer, e a comida está perto.</p>
+    <p style="margin:0"><b>3. O belisco virou o jeito de "fechar o dia".</b> Depois de um dia pesado, um docinho parece uma recompensa. A repetição transforma isso em hábito, e o hábito chama sozinho no mesmo horário.</p>
+  </div>
+  <h3>O que o Fechamento Noturno faz</h3>
+  <p>Ele dá à noite um <b>fim combinado</b>. Em vez de brigar com a vontade a noite inteira, você segue um roteiro curto logo depois do jantar. A cozinha fecha, o ambiente muda, e você já sabe o que fazer se a vontade aparecer.</p>
+  <div class="box g">
+    <p style="margin:0;font-size:12.5pt">Somado ao sono, esse roteiro cria uma janela de <b>12 a 14 horas sem comer</b>. A maior parte dela você passa dormindo. Por isso o jejum aqui é <b>noturno</b>: ele acontece quase todo enquanto você dorme.</p>
+  </div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>3</span></div>
+</section>
+
+<!-- 4 HORARIO DE CORTE -->
+<section class="pg">
+  <div class="kick">Passo zero</div>
+  <h2>Encontre o seu horário de corte</h2>
+  <p>O horário de corte é o momento em que a cozinha fecha. Depois dele, só água, chá ou café sem açúcar. A regra é simples: <b>logo depois do jantar, e de 2 a 3 horas antes de deitar.</b></p>
+  <table style="margin:4mm 0 5mm">
+    <tr><th>Se você janta...</th><th>e dorme...</th><th>Feche a cozinha às</th><th>Janela até o café</th></tr>
+    <tr><td>Antes das 19h</td><td>por volta das 22h</td><td><b>19h30</b></td><td>café às 7h30 = 12h</td></tr>
+    <tr><td>19h às 20h</td><td>por volta das 23h</td><td><b>20h30</b></td><td>café às 8h30 = 12h</td></tr>
+    <tr><td>20h às 21h</td><td>por volta da meia-noite</td><td><b>21h30</b></td><td>café às 9h30 = 12h</td></tr>
+    <tr><td>Depois das 21h</td><td>depois da meia-noite</td><td><b>30 min após o jantar</b></td><td>conte 12h a partir do corte</td></tr>
+  </table>
+  <p class="small">O resultado do seu teste já trouxe um horário sugerido. Se ele não encaixar na sua rotina, use a tabela acima e ajuste em meia hora pra mais ou pra menos.</p>
+  <div class="box">
+    <h3 style="margin-top:0">Escreva aqui</h3>
+    <div class="two" style="margin-top:3mm">
+      <div><span class="small">Eu janto por volta das</span><div class="lines"><div></div></div></div>
+      <div><span class="small">Eu durmo por volta das</span><div class="lines"><div></div></div></div>
+      <div><span class="small">Minha cozinha fecha às</span><div class="lines"><div></div></div></div>
+      <div><span class="small">Meu café da manhã é às</span><div class="lines"><div></div></div></div>
+    </div>
+  </div>
+  <div class="box m">
+    <p style="margin:0"><b>Não precisa pular o café da manhã.</b> A janela de 12 horas é contada do corte até o café. Se 12 horas ficar fácil depois da primeira semana, você pode ir para 13 ou 14 empurrando o café em meia hora. Nunca passe de 14.</p>
+  </div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>4</span></div>
+</section>
+
+<!-- 5 PASSOS 1-4 -->
+<section class="pg">
+  <div class="kick">O método</div>
+  <h2>Os 7 passos do Fechamento Noturno</h2>
+  <p class="lead" style="margin-bottom:6mm">Do fim do jantar até a hora de dormir. Leva uns 20 minutos no total e depois vira automático.</p>
+  <div class="step"><div class="n">1</div><div><h4>Defina o horário de corte</h4><p>Use o horário da página 4. Coloque um alarme no celular com o nome "cozinha fechada".</p><p class="why">Por quê: sem um horário, a noite fica aberta e cada belisco parece "só esse".</p></div></div>
+  <div class="step"><div class="n">2</div><div><h4>Termine o jantar com um sinal de fim</h4><p>Escolha um item que sempre encerra o jantar: um chá sem açúcar, uma fruta ou um quadradinho de chocolate amargo, servido <b>junto</b> com o jantar, não depois.</p><p class="why">Por quê: o cérebro aprende que depois desse item a comida do dia acabou. A sobremesa deixa de ser um convite pra continuar.</p></div></div>
+  <div class="step"><div class="n">3</div><div><h4>Feche a cozinha em 5 minutos</h4><p>Guarde tudo em potes, limpe a pia, tire os pacotes da bancada e apague a luz da cozinha. Nada fica à vista.</p><p class="why">Por quê: o que está à vista é o que você belisca. Cozinha escura e bancada vazia não chamam ninguém.</p></div></div>
+  <div class="step"><div class="n">4</div><div><h4>Escove os dentes logo em seguida</h4><p>Não espere a hora de dormir. Escove assim que fechar a cozinha.</p><p class="why">Por quê: o gosto de menta corta a vontade de doce, e comer depois de escovar dá preguiça. É o aviso de que o dia de comer acabou.</p></div></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>5</span></div>
+</section>
+
+<!-- 6 PASSOS 5-7 -->
+<section class="pg">
+  <div class="kick">O método</div>
+  <h2>Os 7 passos (continuação)</h2>
+  <div class="step"><div class="n">5</div><div><h4>Mude de ambiente por 10 minutos</h4><p>Saia da cozinha e da frente da TV. Tome banho, faça uma caminhada curta, arrume a roupa do dia seguinte ou organize a bolsa.</p><p class="why">Por quê: a vontade pega mais forte nos primeiros minutos depois do jantar, quando você para no sofá. Quebrar esse momento é metade do trabalho.</p></div></div>
+  <div class="step"><div class="n">6</div><div><h4>Tenha uma resposta pronta para a vontade</h4><p>Quando bater vontade: <b>1</b> copo d'água ou chá, <b>espere 10 minutos</b> e <b>anote o horário</b> no registro da página 15.</p><p class="why">Por quê: a maioria das vontades passa em 10 minutos. Anotar mostra em que horário ela costuma aparecer, e você se prepara pra ele. Mais respostas na página 13.</p></div></div>
+  <div class="step"><div class="n">7</div><div><h4>Durma dentro da janela</h4><p>Vá pra cama no horário que você anotou. Celular longe da cama, se der.</p><p class="why">Por quê: cada hora acordada a mais é uma hora a mais de chance de beliscar. Dormindo, a janela se cumpre sozinha.</p></div></div>
+  <div class="box g" style="margin-top:6mm">
+    <h3 style="margin-top:0">Cola rápida (pra colar na geladeira)</h3>
+    <p style="margin:0;font-size:12pt;line-height:1.9">① Horário de corte &nbsp;② Sinal de fim &nbsp;③ Cozinha fechada em 5 min<br>④ Dentes escovados &nbsp;⑤ 10 min fora da cozinha e da TV<br>⑥ Vontade? Água + 10 min + anotar &nbsp;⑦ Cama no horário</p>
+  </div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>6</span></div>
+</section>
+
+<!-- 7 PERFIS -->
+<section class="pg">
+  <div class="kick">Personalize</div>
+  <h2>Seu perfil: onde colocar mais atenção</h2>
+  <p>Todo mundo faz os 7 passos. Mas o teste mostrou onde o <b>seu</b> belisco costuma acontecer. Nesses passos, capriche dobrado.</p>
+  <div class="two">
+    <div class="box"><span class="tag">Cozinha Aberta</span><p class="small" style="margin-bottom:2mm">Belisca arrumando a cozinha ou indo à geladeira.</p><p style="margin:0"><b>Foco: passos 2 e 3.</b> Sirva o sinal de fim no prato. Guarde as sobras em potes fechados antes de lavar a louça. Se puder, peça pra outra pessoa guardar a comida.</p></div>
+    <div class="box"><span class="tag">Belisco do Sofá</span><p class="small" style="margin-bottom:2mm">Belisca vendo TV ou mexendo no celular.</p><p style="margin:0"><b>Foco: passos 5 e 6.</b> Não sente no sofá direto depois do jantar. Deixe uma garrafa de água ou caneca de chá do lado do sofá. Mãos ocupadas ajudam: crochê, creme na mão, organizar algo.</p></div>
+    <div class="box"><span class="tag">Ciclo do Doce</span><p class="small" style="margin-bottom:2mm">A vontade é de doce, mais forte depois de dias estressantes.</p><p style="margin:0"><b>Foco: passos 2 e 6.</b> O sinal de fim pode ser doce (fruta ou chocolate amargo), servido no jantar. Nos dias pesados, troque a recompensa: banho demorado, música, ligar pra alguém.</p></div>
+    <div class="box"><span class="tag">Horário Tardio</span><p class="small" style="margin-bottom:2mm">Janta ou dorme tarde.</p><p style="margin:0"><b>Foco: passos 1 e 7.</b> Tente adiantar o jantar em 30 minutos por semana. Feche a cozinha 30 minutos depois de comer. Alarme pra ir pra cama, não só pra acordar.</p></div>
+  </div>
+  <div class="box m"><p style="margin:0"><b>Não lembra seu perfil?</b> Pense onde aconteceu o último belisco: na cozinha, no sofá, por causa de doce depois de um dia ruim, ou porque ficou acordada(o) até tarde. Esse é o seu ponto de atenção.</p></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>7</span></div>
+</section>
+
+<!-- NOITES -->
+<section class="pg">
+  <div class="kick">Roteiro guiado</div>
+  <div class="night-h"><span class="big">1</span><h2 style="margin:0">Noite 1: só fechar a cozinha</h2></div>
+  <p class="hand" style="margin-bottom:4mm">hoje o objetivo é um só</p>
+  <p>Na primeira noite, não tente fazer tudo perfeito. O foco é <b>um</b> passo: fechar a cozinha no horário de corte e não voltar lá.</p>
+  <div class="box"><h3 style="margin-top:0">Checklist da noite</h3>
+  <ul class="c"><li>Alarme "cozinha fechada" programado</li><li>Jantei e servi o sinal de fim junto</li><li>Fechei a cozinha em 5 minutos (tudo guardado, luz apagada)</li><li>Escovei os dentes</li><li>Se bateu vontade: água + 10 minutos + anotei o horário</li><li>Fui pra cama no horário</li></ul></div>
+  <div class="box y"><p style="margin:0"><b>Dica da noite 1:</b> antes de jantar, tire da bancada tudo que é beliscável (pão, biscoito, pote de doce). Hoje a cozinha já começa "meio fechada".</p></div>
+  <div class="box"><span class="small">O que foi mais difícil hoje?</span><div class="lines"><div></div><div></div></div></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>8</span></div>
+</section>
+
+<section class="pg">
+  <div class="kick">Roteiro guiado</div>
+  <div class="night-h"><span class="big">2</span><h2 style="margin:0">Noite 2: o sinal de fim</h2></div>
+  <p class="hand" style="margin-bottom:4mm">o jantar precisa terminar de verdade</p>
+  <p>Ontem você fechou a cozinha. Hoje o foco é o momento <b>antes</b> disso: terminar o jantar com o seu sinal de fim, sempre o mesmo.</p>
+  <div class="box"><h3 style="margin-top:0">Escolha o seu sinal de fim</h3>
+  <ul class="c"><li>Chá sem açúcar (camomila, erva-cidreira, hortelã)</li><li>Uma fruta servida no prato do jantar</li><li>Um quadradinho de chocolate amargo, junto com o jantar</li><li>Outro: ____________________________</li></ul></div>
+  <div class="box"><h3 style="margin-top:0">Checklist da noite</h3>
+  <ul class="c"><li>Sinal de fim servido junto com o jantar</li><li>Cozinha fechada em 5 minutos</li><li>Dentes escovados logo em seguida</li><li>Vontade: água + 10 minutos + anotar</li><li>Cama no horário</li></ul></div>
+  <div class="box"><span class="small">Em que horário a vontade apareceu hoje?</span><div class="lines"><div></div></div></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>9</span></div>
+</section>
+
+<section class="pg">
+  <div class="kick">Roteiro guiado</div>
+  <div class="night-h"><span class="big">3</span><h2 style="margin:0">Noite 3: sair do lugar</h2></div>
+  <p class="hand" style="margin-bottom:4mm">a noite mais difícil costuma ser essa</p>
+  <p>A novidade passou e a vontade testa você. Hoje o foco é o <b>passo 5</b>: depois de escovar os dentes, 10 minutos longe da cozinha e da TV.</p>
+  <div class="box"><h3 style="margin-top:0">Escolha o que fazer nos 10 minutos</h3>
+  <ul class="c"><li>Banho (o mais eficiente)</li><li>Caminhada curta, mesmo no prédio ou no quintal</li><li>Arrumar a roupa e a bolsa do dia seguinte</li><li>Alongar no quarto</li><li>Ligar ou mandar áudio pra alguém</li></ul></div>
+  <div class="box"><h3 style="margin-top:0">Checklist da noite</h3>
+  <ul class="c"><li>Sinal de fim + cozinha fechada</li><li>Dentes escovados</li><li>10 minutos fora da cozinha e da TV</li><li>Vontade: água + 10 minutos + anotar</li><li>Cama no horário</li></ul></div>
+  <div class="box m"><p style="margin:0"><b>Se beliscou:</b> anote o que foi e o horário, e siga normal amanhã. Uma noite não desfaz o roteiro. O que desfaz é desistir.</p></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>10</span></div>
+</section>
+
+<section class="pg">
+  <div class="kick">Roteiro guiado</div>
+  <div class="night-h"><span class="big">4</span><h2 style="margin:0">Noite 4: a vontade tem horário</h2></div>
+  <p class="hand" style="margin-bottom:4mm">olhe o que você anotou</p>
+  <p>Você já tem 3 noites de anotações. Olhe o registro: a vontade costuma aparecer <b>no mesmo horário</b>. Hoje você se prepara pra ele.</p>
+  <div class="box"><h3 style="margin-top:0">Plano para o horário crítico</h3>
+  <p>Minha vontade aparece por volta das ________. </p>
+  <p style="margin:0">10 minutos antes disso eu vou: ______________________________________ (escolha uma resposta da página 13).</p></div>
+  <div class="box"><h3 style="margin-top:0">Checklist da noite</h3>
+  <ul class="c"><li>Sinal de fim + cozinha fechada</li><li>Dentes escovados</li><li>10 minutos fora da cozinha e da TV</li><li>Resposta pronta usada antes do horário crítico</li><li>Cama no horário</li></ul></div>
+  <div class="box"><span class="small">A vontade veio mais fraca, igual ou mais forte que na noite 1?</span><div class="lines"><div></div></div></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>11</span></div>
+</section>
+
+<section class="pg">
+  <div class="kick">Roteiro guiado</div>
+  <div class="night-h"><span class="big">5</span><h2 style="margin:0">Noite 5: o roteiro completo</h2></div>
+  <p class="hand" style="margin-bottom:4mm">hoje os 7 passos andam sozinhos</p>
+  <p>Última noite guiada da semana. Faça os 7 passos em sequência, sem olhar o material, e confira no fim.</p>
+  <div class="box"><h3 style="margin-top:0">Checklist da noite</h3>
+  <ul class="c"><li>1. Horário de corte respeitado</li><li>2. Sinal de fim servido junto com o jantar</li><li>3. Cozinha fechada em 5 minutos</li><li>4. Dentes escovados logo em seguida</li><li>5. 10 minutos fora da cozinha e da TV</li><li>6. Vontade: resposta pronta usada</li><li>7. Cama no horário</li></ul></div>
+  <div class="box g"><p style="margin:0;font-size:12pt">Quantos passos você fez sem precisar olhar? <b>____ de 7.</b> A partir de 5, o roteiro já virou hábito. Na próxima semana ele fica ainda mais leve.</p></div>
+  <div class="box"><span class="small">Como você se sentiu ao acordar hoje, comparado com a semana passada?</span><div class="lines"><div></div><div></div></div></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>12</span></div>
+</section>
+
+<!-- RESPOSTAS PRONTAS -->
+<section class="pg">
+  <div class="kick">Passo 6, ampliado</div>
+  <h2>Respostas prontas para a vontade de beliscar</h2>
+  <p>A regra base é sempre a mesma: <b>água ou chá, 10 minutos, anotar.</b> Se quiser reforço, use a resposta da sua situação.</p>
+  <table>
+    <tr><th style="width:38%">Quando acontece</th><th>Resposta pronta</th></tr>
+    <tr><td>Vontade de doce depois do jantar</td><td>Chá de canela ou hortelã sem açúcar. Escove os dentes de novo se precisar.</td></tr>
+    <tr><td>Vendo TV ou série</td><td>Mãos ocupadas: garrafa de água do lado, creme nas mãos, dobrar roupa. Pause e levante no fim de cada episódio.</td></tr>
+    <tr><td>Mexendo no celular na cama</td><td>Celular carregando longe da cama. Leia algumas páginas de um livro.</td></tr>
+    <tr><td>Depois de um dia estressante</td><td>Banho demorado, música, conversar com alguém. Diga em voz alta: "não é fome, é cansaço".</td></tr>
+    <tr><td>Indo à geladeira "só pra ver"</td><td>Pare na porta da cozinha e conte até 10. Volte com um copo d'água.</td></tr>
+    <tr><td>Arrumando a cozinha</td><td>Guarde as sobras primeiro, antes de lavar. Masque um chiclete sem açúcar enquanto arruma.</td></tr>
+    <tr><td>Fome de verdade (barriga roncando)</td><td>Pode ser que o jantar tenha sido pouco. Amanhã, aumente o jantar com mais proteína e salada. Hoje, um chá e cama.</td></tr>
+    <tr><td>Acordou de madrugada com vontade</td><td>Água e volte pra cama sem acender a luz da cozinha. Se acontecer todo dia, veja o jantar da linha acima.</td></tr>
+    <tr><td>Alguém em casa está comendo</td><td>Combine antes: "estou fechando a cozinha às __h". Saia do ambiente por 10 minutos.</td></tr>
+  </table>
+  <div class="box y" style="margin-top:4mm"><p style="margin:0;font-size:10pt"><b>Se sentir tontura, fraqueza ou mal-estar, coma algo.</b> O protocolo é sobre o belisco por hábito, não sobre passar mal.</p></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>13</span></div>
+</section>
+
+<!-- PAUSA -->
+<section class="pg">
+  <div class="kick">O "+2" do 5+2</div>
+  <h2>As 2 noites de pausa</h2>
+  <p class="lead">Toda semana tem 2 noites livres. Elas não são falha nem "dia do lixo". Elas fazem parte do método e são o motivo de ele durar.</p>
+  <h3>Como escolher</h3>
+  <ul class="d"><li>Escolha no começo da semana. O mais comum é sexta e sábado, ou sábado e domingo.</li><li>Tem aniversário, jantar fora ou viagem? Use a pausa nessa noite e faça o roteiro nas outras.</li><li>Não junte 3 noites de pausa seguidas. Se precisar, troque uma pausa de lugar.</li></ul>
+  <h3>O que fazer na pausa</h3>
+  <div class="box">
+    <ul class="c"><li>Jante e aproveite sem culpa.</li><li>Mesmo na pausa, mantenha o passo 4: escove os dentes antes de deitar.</li><li>Não precisa anotar nada.</li><li>Na noite seguinte, volte ao roteiro normal, sem compensar e sem "pagar" a pausa.</li></ul>
+  </div>
+  <h3>Minhas noites de pausa desta semana</h3>
+  <div class="two"><div class="box" style="margin:0"><span class="small">Pausa 1</span><div class="lines"><div></div></div></div><div class="box" style="margin:0"><span class="small">Pausa 2</span><div class="lines"><div></div></div></div></div>
+  <div class="box m" style="margin-top:5mm"><p style="margin:0"><b>Por que funciona:</b> quem sabe que tem uma noite livre na sexta aguenta melhor a quarta. Proibir tudo pra sempre é o que faz a pessoa largar na segunda semana.</p></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>14</span></div>
+</section>
+
+<!-- REGISTRO -->
+<section class="pg">
+  <div class="kick">Passo 6: anotar</div>
+  <h2>Registro da semana</h2>
+  <p>Leva 30 segundos por noite. Marque com X os passos feitos e anote quando a vontade apareceu.</p>
+  <table style="font-size:9.5pt;text-align:center">
+    <tr><th style="text-align:left">Noite</th><th>Corte</th><th>Sinal</th><th>Cozinha</th><th>Dentes</th><th>10 min</th><th>Vontade (hora)</th><th>Cama</th></tr>
+    <tr><td style="text-align:left"><b>1</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="text-align:left"><b>2</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="text-align:left"><b>3</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="text-align:left"><b>4</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="text-align:left"><b>5</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr style="background:#f3ece2"><td style="text-align:left">Pausa</td><td colspan="3" style="color:var(--mu)">livre</td><td></td><td colspan="3" style="color:var(--mu)">livre</td></tr>
+    <tr style="background:#f3ece2"><td style="text-align:left">Pausa</td><td colspan="3" style="color:var(--mu)">livre</td><td></td><td colspan="3" style="color:var(--mu)">livre</td></tr>
+  </table>
+  <style>.pg table td{height:11mm}</style>
+  <div class="box" style="margin-top:6mm"><h3 style="margin-top:0">Fechamento da semana</h3>
+  <p class="small">O horário em que a vontade mais apareceu:</p><div class="lines"><div></div></div>
+  <p class="small" style="margin-top:3mm">O passo que mais ajudou:</p><div class="lines"><div></div></div>
+  <p class="small" style="margin-top:3mm">O passo que vou reforçar na próxima semana:</p><div class="lines"><div></div></div></div>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>15</span></div>
+</section>
+
+<!-- DEPOIS -->
+<section class="pg">
+  <div class="kick">E agora?</div>
+  <h2>Depois da primeira semana</h2>
+  <p>Repita o ciclo 5+2. A partir da segunda semana, você não precisa mais seguir uma noite por página: use só a cola rápida da página 6 e o registro.</p>
+  <h3>Ajustes que você pode fazer</h3>
+  <div class="box"><ul class="d">
+    <li><b>Janela fácil demais?</b> Empurre o café da manhã em 30 minutos. Limite: 14 horas.</li>
+    <li><b>Janela difícil demais?</b> Volte o corte em 30 minutos. 12 horas já é o objetivo.</li>
+    <li><b>Ainda belisca no mesmo horário?</b> Volte à noite 4 e refaça o plano do horário crítico.</li>
+    <li><b>Acorda com muita fome?</b> Reforce o jantar com proteína, legumes e salada.</li>
+  </ul></div>
+  <h3>Sinais de que está funcionando</h3>
+  <div class="box m"><ul class="c">
+    <li>Você fecha a cozinha sem pensar muito.</li>
+    <li>A vontade aparece menos ou passa mais rápido.</li>
+    <li>Você acorda mais leve, sem aquela sensação de estufamento.</li>
+    <li>As noites de pausa viraram escolha, não descontrole.</li>
+  </ul></div>
+  <div class="box g" style="margin-top:6mm;text-align:center">
+    <p class="hand" style="color:var(--y);font-size:24pt;margin:0">feche a cozinha, feche o dia</p>
+    <p style="margin:2mm 0 0">Protocolo Jejum Noturno · Fechamento Noturno</p>
+  </div>
+  <p class="small" style="margin-top:6mm">Este material tem caráter educativo sobre hábitos e não substitui acompanhamento de profissional de saúde.</p>
+  <div class="num"><span>Protocolo Jejum Noturno</span><span>16</span></div>
+</section>
+
+</body>
+</html>

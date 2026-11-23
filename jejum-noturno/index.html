@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teste do Padrão Noturno · Protocolo Jejum Noturno</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Teste grátis de 1 minuto: descubra por que você belisca depois do jantar e qual o seu horário de fechar a cozinha.">
+<meta name="theme-color" content="#16352B">
+<meta property="og:title" content="Você termina o jantar e continua beliscando até dormir?">
+<meta property="og:description" content="Teste grátis de 1 minuto. Resultado na hora.">
+<script>
+/* ===== CONFIG (só mexer aqui) ===== */
+window.PJN = {
+  CHECKOUT_URL: "",   // link do checkout Cakto do Protocolo Jejum Noturno. Vazio = botão mostra aviso.
+  PRECO: "27",
+  PRECO_DE: "97"
+};
+</script>
+<style>
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:M;src:url(/fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:C;src:url(/fonts/Caveat-600n-latin.woff2) format('woff2');font-weight:600;font-display:swap}
+:root{--g:#16352B;--g2:#24503F;--t:#FF6A3D;--t2:#E8542A;--cr:#FFF6EC;--y:#FFD36E;--mt:#CDEBD8;--tx:#1d2a24;--mu:#5d6b64;--ln:#ead9c6;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cr);color:var(--tx);font-family:M,system-ui,sans-serif;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:520px;margin:0 auto;padding:0 18px}
+.top{position:sticky;top:0;z-index:20;background:var(--cr);padding:12px 0 8px}
+.top .row{display:flex;align-items:center;gap:12px}
+.back{width:34px;height:34px;border-radius:50%;border:0;background:transparent;font-size:22px;color:var(--g);visibility:hidden}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;color:var(--g);font-size:15px;letter-spacing:-.2px;flex:1;justify-content:center}
+.seal{width:30px;height:30px;border-radius:50%;background:var(--g);color:var(--y);display:grid;place-items:center;font-weight:900;font-size:10px;box-shadow:0 0 0 3px var(--t) inset}
+.bar{height:6px;background:#efe2d2;border-radius:6px;margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--t);border-radius:6px;transition:width .35s}
+.scr{display:none;padding:18px 0 120px;animation:in .3s ease}
+.scr.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1{font-weight:900;font-size:31px;line-height:1.08;color:var(--g);letter-spacing:-.6px}
+h2{font-weight:800;font-size:23px;line-height:1.18;color:var(--g);letter-spacing:-.3px;margin-bottom:18px;text-align:center}
+.lead{font-size:16.5px;color:var(--mu);margin-top:12px}
+.hl{background:linear-gradient(transparent 55%,var(--y) 55%);padding:0 2px}
+.hand{font-family:C,cursive;font-weight:600;color:var(--t2);font-size:24px}
+.btn{display:block;width:100%;border:0;border-radius:14px;background:var(--t);color:#fff;font-weight:800;font-size:17px;padding:17px 18px;text-align:center;text-decoration:none;box-shadow:0 5px 0 var(--t2);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--t2)}
+.btn.g{background:var(--g);box-shadow:0 5px 0 #0c2019}
+.opts{display:flex;flex-direction:column;gap:11px}
+.opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:var(--w);border:2px solid var(--ln);border-radius:14px;padding:14px 15px;font-size:15.5px;font-weight:600;color:var(--tx);transition:border-color .15s,background .15s}
+.opt .e{font-size:24px;width:30px;text-align:center;flex:none}
+.opt:hover{border-color:var(--t)}
+.opt.sel{border-color:var(--g);background:var(--mt)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.age{background:var(--w);border:2px solid var(--ln);border-radius:16px;padding:18px 10px;text-align:center;font-weight:800;color:var(--g)}
+.age b{display:block;font-size:30px;font-weight:900;letter-spacing:-1px}
+.age span{font-size:13px;color:var(--mu);font-weight:600}
+.age:hover{border-color:var(--t)}
+.agef{padding:0;overflow:hidden;text-align:left;display:flex;flex-direction:column}
+.agef img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 8%;display:block;background:#eee}
+.agef .al{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:11px 12px;font-size:14px;font-weight:700;color:var(--g);background:var(--cr)}
+.agef .al i{font-style:normal;border:2px solid var(--g);border-radius:7px;width:26px;height:26px;display:grid;place-items:center;font-size:12px;flex:none}
+.agef.sel{border-color:var(--t)}
+
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:22px}
+.chip{border:2px solid var(--ln);background:var(--w);border-radius:40px;padding:11px 16px;font-weight:700;font-size:15px;color:var(--tx)}
+.chip.sel{background:var(--g);border-color:var(--g);color:#fff}
+.card{background:var(--w);border-radius:18px;padding:20px;border:1px solid var(--ln)}
+.info{text-align:center}
+.info .big{font-size:52px;margin-bottom:6px}
+.info p{font-size:16.5px;margin-top:10px}
+.slider-box{background:var(--w);border-radius:18px;border:1px solid var(--ln);padding:26px 18px;text-align:center;margin-bottom:22px}
+.slider-box .val{font-weight:900;font-size:46px;color:var(--g);letter-spacing:-1px}
+.slider-box .val small{font-size:20px;font-weight:700;color:var(--mu);margin-left:4px}
+input[type=range]{width:100%;margin:18px 0 6px;accent-color:var(--t);height:30px}
+.ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--mu)}
+.field{width:100%;border:2px solid var(--ln);border-radius:14px;padding:16px;font-size:18px;font-family:inherit;margin-bottom:16px;background:#fff}
+.field:focus{outline:none;border-color:var(--g)}
+.note{font-size:12.5px;color:var(--mu);text-align:center;margin-top:12px}
+.hero-photo{border-radius:20px;overflow:hidden;margin:18px 0;position:relative;aspect-ratio:4/3;background:#ddd}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero-photo .tag{position:absolute;left:12px;bottom:12px;background:var(--g);color:#fff;font-weight:800;font-size:13px;padding:7px 11px;border-radius:9px}
+.hero-photo .tag2{position:absolute;right:12px;top:12px;background:var(--y);color:var(--g);font-weight:900;font-size:13px;padding:7px 11px;border-radius:9px;transform:rotate(3deg)}
+.trust{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--mu);font-weight:600}
+.tl div{display:flex;border:2px solid #e9b8cf;border-radius:12px;overflow:hidden;margin:0 auto 14px;background:#fff;position:relative}.tl div:not(:last-child):after{content:"↓";position:absolute;left:30px;bottom:-17px;color:var(--t2);font-weight:900}.tl b{background:var(--t2);color:#fff;min-width:74px;display:grid;place-items:center;text-align:center;font-size:18px;line-height:1.05;padding:8px}.tl span{padding:12px;font-size:15px}.tl .ok{border-color:#7cc296}.tl .ok b{background:#3f9a5f}
+.loading{text-align:center;padding-top:30px}
+.ring{width:150px;height:150px;margin:0 auto 22px;border-radius:50%;background:conic-gradient(var(--t) calc(var(--p)*1%),#efe2d2 0);display:grid;place-items:center;--p:0}
+.ring div{width:122px;height:122px;border-radius:50%;background:var(--cr);display:grid;place-items:center;font-weight:900;font-size:32px;color:var(--g)}
+.steps{list-style:none;text-align:left;max-width:340px;margin:20px auto 0}
+.steps li{padding:9px 0;color:#b9a994;font-weight:600;display:flex;gap:10px;align-items:center}
+.steps li.ok{color:var(--g)}
+.steps li.ok:before{content:"✓";color:#fff;background:var(--g);border-radius:50%;width:22px;height:22px;display:inline-grid;place-items:center;font-size:13px}
+.steps li:not(.ok):before{content:"";width:22px;height:22px;border-radius:50%;border:2px solid #e2d3c0}
+/* resultado */
+.res-head{text-align:center}
+.res-head .kicker{display:inline-block;background:var(--g);color:var(--y);font-weight:800;font-size:12.5px;letter-spacing:.8px;text-transform:uppercase;padding:7px 12px;border-radius:30px;margin-bottom:14px}
+.agebox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 8px}
+.agebox div{border-radius:16px;padding:16px 8px;text-align:center}
+.agebox .a1{background:var(--w);border:1px solid var(--ln)}
+.agebox .a2{background:var(--g);color:#fff}
+.agebox small{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;opacity:.8}
+.agebox b{display:block;font-size:44px;font-weight:900;letter-spacing:-1.5px;line-height:1.1}
+.agebox .a2 b{color:var(--y)}
+.gauge{height:14px;border-radius:10px;background:linear-gradient(90deg,#3bb273,#ffd36e 50%,#ff6a3d);position:relative;margin:24px 4px 6px}
+.gauge i{position:absolute;top:-7px;width:4px;height:28px;background:var(--g);border-radius:3px;transform:translateX(-50%)}
+.gauge-l{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mu);font-weight:700;margin:0 4px}
+.alert{background:#fff1df;border:1.5px solid #ffc98a;border-radius:14px;padding:13px 15px;font-weight:700;color:#8a4b00;font-size:14.5px;margin:18px 0;display:flex;gap:10px}
+.prof{background:var(--mt);border-radius:18px;padding:20px;margin:18px 0}
+.prof h3{font-weight:900;color:var(--g);font-size:21px;margin:4px 0 8px}
+.prof .lab{font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--g2)}
+.list{list-style:none;margin-top:10px}
+.list li{padding:6px 0 6px 28px;position:relative;font-size:15.5px}
+.list li:before{content:"";position:absolute;left:0;top:9px;width:18px;height:18px;border-radius:50%;background:var(--t);box-shadow:inset 0 0 0 5px #fff;border:2px solid var(--t)}
+.sec{margin-top:34px}
+.sec h2{text-align:left;margin-bottom:12px}
+.mock{position:relative;margin:10px auto 0;max-width:420px}
+.mock img{width:100%;display:block}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}
+.week div{border-radius:10px;padding:9px 2px;text-align:center;font-size:11px;font-weight:700}
+.week .f{background:var(--g);color:#fff}
+.week .p{background:var(--y);color:var(--g)}
+.week b{display:block;font-size:15px;font-weight:900}
+.inc{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--ln)}
+.inc .n{flex:none;width:38px;height:38px;border-radius:11px;background:var(--g);color:var(--y);display:grid;place-items:center;font-weight:900}
+.inc h4{font-weight:800;color:var(--g);font-size:16px}
+.inc p{font-size:14.5px;color:var(--mu);margin-top:2px}
+.price{background:var(--g);color:#fff;border-radius:22px;padding:26px 20px;text-align:center;margin-top:30px;position:relative;overflow:hidden}
+.price:after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,211,110,.12)}
+.price .de{text-decoration:line-through;opacity:.7;font-weight:600}
+.price .por{font-size:58px;font-weight:900;letter-spacing:-2px;color:var(--y);line-height:1.05;margin:4px 0}
+.price .por small{font-size:24px;letter-spacing:0;margin-right:4px}
+.price .pix{font-size:13.5px;opacity:.85;margin-bottom:16px}
+.guar{display:flex;gap:14px;align-items:center;background:var(--w);border:1px solid var(--ln);border-radius:18px;padding:18px;margin-top:22px}
+.guar .s{flex:none;width:70px;height:70px;border-radius:50%;background:var(--y);display:grid;place-items:center;text-align:center;font-weight:900;color:var(--g);font-size:12px;line-height:1.1;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--y)}
+.guar .s b{font-size:24px;display:block}
+.faq details{background:var(--w);border:1px solid var(--ln);border-radius:14px;padding:15px 16px;margin-bottom:9px}
+.faq summary{font-weight:800;color:var(--g);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary:after{content:"+";font-size:20px;line-height:1;color:var(--t)}
+.faq details[open] summary:after{content:"–"}
+.faq p{margin-top:9px;font-size:15px;color:var(--mu)}
+.foot{margin-top:40px;padding:22px 0 30px;border-top:1px solid var(--ln);font-size:11.5px;color:var(--mu);text-align:center;line-height:1.55}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(255,246,236,.97);backdrop-filter:blur(6px);border-top:1px solid var(--ln);padding:10px 16px calc(10px + env(safe-area-inset-bottom));z-index:30;transform:translateY(110%);transition:transform .3s}
+.sticky.on{transform:none}
+.sticky .wrap{display:flex;gap:12px;align-items:center;padding:0}
+.sticky .p{font-weight:900;color:var(--g);font-size:20px;white-space:nowrap}
+.sticky .p small{display:block;font-size:11px;color:var(--mu);font-weight:700;text-decoration:line-through}
+.sticky .btn{padding:14px 10px;font-size:15.5px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--g);color:#fff;padding:12px 16px;border-radius:12px;font-size:14px;font-weight:700;z-index:40;display:none;max-width:90%}
+.steps7{list-style:none;counter-reset:s;margin-top:8px}
+.steps7 li{counter-increment:s;position:relative;padding:14px 14px 14px 58px;background:var(--w);border:1px solid var(--ln);border-radius:14px;margin-bottom:9px}
+.steps7 li:before{content:counter(s);position:absolute;left:14px;top:14px;width:32px;height:32px;border-radius:10px;background:var(--g);color:var(--y);display:grid;place-items:center;font-weight:900}
+.steps7 li b{display:block;color:var(--g);font-size:15.5px}
+.steps7 li span{font-size:14.5px;color:var(--mu)}
+.steps7 li.foco{border:2px solid var(--t);background:#fff4ec}
+.steps7 li.foco b:after{content:"seu foco";margin-left:8px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;background:var(--t);color:#fff;padding:2px 7px;border-radius:20px;vertical-align:2px}
+.clock{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 6px}
+.clock div{border-radius:16px;padding:16px 8px;text-align:center;background:var(--w);border:1px solid var(--ln)}
+.clock .c2{background:var(--g);color:#fff;border:0}
+.clock small{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;opacity:.8}
+.clock b{display:block;font-size:38px;font-weight:900;letter-spacing:-1px;line-height:1.15}
+.clock .c2 b{color:var(--y)}
+.night{display:flex;height:34px;border-radius:10px;overflow:hidden;margin:16px 0 6px;font-size:11.5px;font-weight:800}
+.night div{display:grid;place-items:center;color:#fff}
+.night .n1{background:var(--t2)}.night .n2{background:#2b4a7a}.night .n3{background:#3f9a5f}
+.nightl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mu);font-weight:700}
+</style>
+<script>window.pixelId="6af8a5e4824e082fdd2a25e0";var a=document.createElement("script");a.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";a.async=true;a.defer=true;document.head.appendChild(a);</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="row"><button class="back" id="back" aria-label="Voltar">←</button><div class="logo"><span class="seal">🌙</span>Protocolo Jejum Noturno</div><span style="width:34px"></span></div>
+  <div class="bar"><i id="bar"></i></div>
+</div></header>
+<main class="wrap" id="app">
+
+<!-- 0 CAPA -->
+<section class="scr on" data-s="capa">
+  <h1 style="text-align:center;margin-top:6px;font-size:27px">Você termina o jantar e <span class="hl">continua beliscando até dormir?</span></h1>
+  <p class="lead" style="text-align:center">Um biscoito lavando a louça, um chocolate no sofá, uma ida à geladeira antes de deitar. Somados, viram um segundo jantar.</p>
+  <div class="card" style="margin:18px 0;text-align:center">
+    <p style="font-weight:800;color:var(--g);font-size:17px">Não é falta de força de vontade.</p>
+    <p style="font-size:15px;color:var(--mu);margin-top:6px">Depois do jantar a sua noite não tem um fim combinado. A cozinha fica aberta, você fica cansada(o) e o belisco vira o jeito de fechar o dia.</p>
+  </div>
+  <p style="text-align:center;font-weight:700;margin-bottom:14px">Responda 7 perguntas e descubra o seu <b style="color:var(--t2)">padrão noturno</b> e o seu <b style="color:var(--t2)">horário de fechar a cozinha</b>.</p>
+  <button class="btn" id="comecar">Fazer o teste grátis →</button>
+  <div class="trust"><span>✓ 1 minuto</span><span>✓ Resultado na hora</span><span>✓ Sem cadastro</span></div>
+</section>
+
+<!-- 1 -->
+<section class="scr" data-s="jantar" data-q>
+  <h2>Que horas você costuma jantar?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🕖</span>Antes das 19h</button>
+    <button class="opt" data-v="1"><span class="e">🕢</span>Entre 19h e 20h</button>
+    <button class="opt" data-v="2"><span class="e">🕣</span>Entre 20h e 21h</button>
+    <button class="opt" data-v="3"><span class="e">🕘</span>Depois das 21h</button>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="scr" data-s="dormir" data-q>
+  <h2>Que horas você costuma dormir?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">😴</span>Antes das 22h</button>
+    <button class="opt" data-v="1"><span class="e">🛏️</span>Entre 22h e 23h</button>
+    <button class="opt" data-v="2"><span class="e">🌙</span>Entre 23h e meia-noite</button>
+    <button class="opt" data-v="3"><span class="e">🦉</span>Depois da meia-noite</button>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="scr" data-s="frequencia" data-q>
+  <h2>Depois do jantar, você belisca alguma coisa antes de dormir?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🙂</span>Quase nunca</button>
+    <button class="opt" data-v="1"><span class="e">🤏</span>1 a 2 noites por semana</button>
+    <button class="opt" data-v="2"><span class="e">😬</span>3 a 5 noites por semana</button>
+    <button class="opt" data-v="3"><span class="e">🍫</span>Quase todas as noites</button>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="scr" data-s="onde" data-q>
+  <h2>Onde o belisco costuma acontecer?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🍽️</span>Arrumando a cozinha depois do jantar</button>
+    <button class="opt" data-v="1"><span class="e">🛋️</span>No sofá, vendo TV ou mexendo no celular</button>
+    <button class="opt" data-v="2"><span class="e">🧊</span>Indo à geladeira antes de deitar</button>
+    <button class="opt" data-v="3"><span class="e">🌃</span>Acordo de madrugada e como alguma coisa</button>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="scr" data-s="oque" data-q>
+  <h2>O que você mais belisca à noite?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🍪</span>Doce: chocolate, biscoito, sobremesa</button>
+    <button class="opt" data-v="1"><span class="e">🧀</span>Salgado: pão, queijo, salgadinho</button>
+    <button class="opt" data-v="2"><span class="e">🍿</span>Um pouco de tudo</button>
+    <button class="opt" data-v="3"><span class="e">🍝</span>O que sobrou do jantar</button>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="scr" data-s="quando" data-q>
+  <h2>Quando a vontade de beliscar aperta mais?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">😤</span>Depois de um dia estressante</button>
+    <button class="opt" data-v="1"><span class="e">🥱</span>Quando estou cansada(o) e parada(o)</button>
+    <button class="opt" data-v="2"><span class="e">⏰</span>Quando fico acordada(o) até tarde</button>
+    <button class="opt" data-v="3"><span class="e">🔁</span>Sem motivo, já virou hábito</button>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="scr" data-s="tentativas" data-q>
+  <h2>Você já tentou jejum ou dieta e desistiu?</h2>
+  <div class="opts">
+    <button class="opt" data-v="0"><span class="e">🆕</span>Nunca tentei</button>
+    <button class="opt" data-v="1"><span class="e">☕</span>Tentei pular o café da manhã e não aguentei</button>
+    <button class="opt" data-v="2"><span class="e">🥗</span>Fiz dieta restritiva e voltei a beliscar</button>
+    <button class="opt" data-v="3"><span class="e">🔄</span>Já tentei várias vezes</button>
+  </div>
+</section>
+
+<!-- LOADING -->
+<section class="scr loading" data-s="loading">
+  <div class="ring" id="ring"><div id="ringN">0%</div></div>
+  <h2 style="margin-bottom:6px">Montando o seu Fechamento Noturno…</h2>
+  <ul class="steps" id="steps">
+    <li>Lendo o horário do seu jantar e do seu sono</li>
+    <li>Identificando onde o belisco acontece</li>
+    <li>Calculando o seu horário de corte</li>
+    <li>Escolhendo os passos certos pro seu perfil</li>
+    <li>Preparando o seu resultado</li>
+  </ul>
+</section>
+
+<!-- RESULTADO -->
+<section class="scr" data-s="resultado">
+  <div class="res-head">
+    <span class="kicker">Seu padrão noturno</span>
+    <h1 id="pNome" style="font-size:30px">—</h1>
+    <p class="lead" id="pDesc"></p>
+  </div>
+
+  <div class="clock">
+    <div><small>Cozinha fecha às</small><b id="rCorte">—</b></div>
+    <div class="c2"><small>Janela noturna</small><b>12 h</b></div>
+  </div>
+  <div class="night" id="night"><div class="n1" id="nA">noite</div><div class="n2" id="nB">sono</div><div class="n3" id="nC">manhã</div></div>
+  <div class="nightl"><span id="lA">—</span><span id="lB">—</span><span id="lC">—</span></div>
+  <p class="note" id="rSono" style="font-size:14px;font-weight:700;color:var(--g)"></p>
+
+  <div class="alert"><span>⚠️</span><span id="rAlert"></span></div>
+
+  <div class="prof">
+    <div class="lab">Sinais do seu perfil</div>
+    <ul class="list" id="pSinais"></ul>
+  </div>
+
+  <div class="sec">
+    <h2>O Fechamento Noturno: o roteiro do jantar até a hora de dormir</h2>
+    <p style="color:var(--mu);margin-bottom:12px">O segredo não é o nome do jejum. É ter um <b style="color:var(--g)">roteiro fixo para depois do jantar</b>, para a noite ter um fim combinado e o belisco não ter espaço. Os passos marcados são o foco do seu perfil.</p>
+    <ol class="steps7" id="passos">
+      <li data-p="1"><b>Defina o horário de corte</b><span>A cozinha fecha logo depois do jantar, de 2 a 3 horas antes de deitar. O seu é às <span class="corteTxt">—</span>.</span></li>
+      <li data-p="2"><b>Termine o jantar com um sinal de fim</b><span>Um chá sem açúcar ou uma fruta já no prato do jantar, e não depois.</span></li>
+      <li data-p="3"><b>Feche a cozinha em 5 minutos</b><span>Guarde tudo, limpe a pia, apague a luz. Nada fica à vista na bancada.</span></li>
+      <li data-p="4"><b>Escove os dentes logo em seguida</b><span>É o aviso de que a comida do dia acabou.</span></li>
+      <li data-p="5"><b>Mude de ambiente por 10 minutos</b><span>Saia da cozinha e da frente da TV: banho, uma caminhada curta ou arrumar a roupa de amanhã.</span></li>
+      <li data-p="6"><b>Tenha uma resposta pronta para a vontade</b><span>Um copo d'água ou chá, espere 10 minutos e anote o horário. A vontade costuma passar nesse intervalo.</span></li>
+      <li data-p="7"><b>Durma dentro da janela</b><span>12 horas sem comer, a maior parte delas dormindo. As horas acordadas caem no período que você já organizou.</span></li>
+    </ol>
+  </div>
+
+  <div class="sec">
+    <h2>5 noites guiadas + 2 de pausa</h2>
+    <div class="week">
+      <div class="f">SEG<b>✓</b></div><div class="f">TER<b>✓</b></div><div class="f">QUA<b>✓</b></div><div class="f">QUI<b>✓</b></div><div class="f">SEX<b>✓</b></div><div class="p">SÁB<b>☕</b></div><div class="p">DOM<b>☕</b></div>
+    </div>
+    <p class="note" style="text-align:left">As 2 noites de pausa são planejadas e fazem parte do método. Não contam como falha.</p>
+  </div>
+
+  <div class="sec">
+    <h2>O que você recebe</h2>
+    <div class="inc"><span class="n">1</span><div><h4>Seu horário de corte e sua janela</h4><p>Calculados pelo teste a partir do horário do seu jantar e do seu sono.</p></div></div>
+    <div class="inc"><span class="n">2</span><div><h4>Roteiro das 5 noites</h4><p>Os 7 passos do Fechamento Noturno aplicados noite a noite, do fim do jantar até a hora de dormir.</p></div></div>
+    <div class="inc"><span class="n">3</span><div><h4>Respostas prontas para a vontade</h4><p>O que fazer na hora exata em que a vontade de beliscar aperta.</p></div></div>
+    <div class="inc" style="border:0"><span class="n">4</span><div><h4>Guia das 2 noites de pausa</h4><p>Como aproveitar o fim de semana sem perder o ritmo da semana seguinte.</p></div></div>
+  </div>
+
+  <div class="price">
+    <div class="de">De R$ <span class="pDe">97</span></div>
+    <div class="por"><small>R$</small><span class="pPor">27</span></div>
+    <div class="pix">pagamento único · Pix ou cartão · acesso imediato no e-mail</div>
+    <a class="btn cta" href="#" data-cta="preco">Quero o meu Fechamento Noturno →</a>
+  </div>
+
+  <div class="guar"><div class="s"><b>7</b>DIAS</div><div><b style="color:var(--g)">Garantia de 7 dias</b><p style="font-size:14.5px;color:var(--mu);margin-top:3px">Aplique as primeiras noites. Se não gostar, peça o reembolso em até 7 dias e recebe 100% de volta.</p></div></div>
+
+  <div class="sec faq">
+    <h2>Perguntas frequentes</h2>
+    <details><summary>Vou passar fome?</summary><p>A janela de 12 horas começa no jantar e atravessa o sono. As poucas horas acordadas caem logo depois do jantar, que é justamente o período que o roteiro organiza.</p></details>
+    <details><summary>Preciso pular o café da manhã?</summary><p>Não. O Protocolo Jejum Noturno ataca a noite, e não a manhã. Você toma café no seu horário normal.</p></details>
+    <details><summary>E se eu tiver um jantar fora ou uma festa?</summary><p>Use uma das 2 noites de pausa da semana. Elas fazem parte do método.</p></details>
+    <details><summary>Como recebo?</summary><p>Logo após o pagamento você recebe o acesso no e-mail. O material é digital e abre no celular.</p></details>
+    <details><summary>Quem não deve fazer?</summary><p>Pessoas com diabetes ou que usam medicação, gestantes e lactantes, menores de 18 e quem tem histórico de transtorno alimentar devem conversar com um profissional de saúde antes de fazer qualquer jejum.</p></details>
+  </div>
+
+  <a class="btn cta" href="#" data-cta="faq" style="margin-top:22px">Começar hoje à noite →</a>
+
+  <footer class="foot">
+    Protocolo Jejum Noturno é um conteúdo educativo de rotina para o período da noite. Não é tratamento, não substitui acompanhamento médico ou nutricional e não promete resultado específico: os resultados variam de pessoa para pessoa. Quem tem diabetes ou usa medicação, gestantes e quem tem histórico de transtorno alimentar deve falar com um profissional antes de fazer jejum.<br><br>
+    Este site não faz parte do Facebook ou da Meta Platforms, Inc.
+  </footer>
+</section>
+</main>
+
+<div class="sticky" id="sticky"><div class="wrap"><div class="p"><small>R$ <span class="pDe">97</span></small>R$ <span class="pPor">27</span></div><a class="btn cta" href="#" data-cta="sticky">Quero o meu roteiro</a></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var C=window.PJN, $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var scr=$$('.scr'), cur=0, hist=[], ans={};
+function px(ev,data,n){n=n||0;try{if(window.fbq){var std=/^(PageView|ViewContent|Lead|InitiateCheckout|Purchase)$/.test(ev);fbq(std?'track':'trackCustom',ev,data||{})}else if(n<40)setTimeout(function(){px(ev,data,n+1)},250)}catch(e){}}
+$$('.pPor').forEach(function(e){e.textContent=C.PRECO}); $$('.pDe').forEach(function(e){e.textContent=C.PRECO_DE});
+function show(i,push){ if(push!==false)hist.push(cur); scr[cur].classList.remove('on'); cur=i; scr[cur].classList.add('on');
+  var s=scr[cur].dataset.s; px('JN'+('0'+cur).slice(-2)+'_'+s);
+  $('#bar').style.width=Math.min(100,Math.round(cur/(scr.length-1)*100))+'%';
+  $('#back').style.visibility=(cur>0&&s!=='loading'&&s!=='resultado')?'visible':'hidden';
+  window.scrollTo(0,0);
+  if(s==='loading')runLoading();
+  $('#sticky').classList.toggle('on',s==='resultado');
+}
+$('#back').onclick=function(){if(hist.length){show(hist.pop(),false)}};
+$('#comecar').onclick=function(){px('QuizIniciado');show(1)};
+$$('.scr[data-q]').forEach(function(s){
+  $$('.opt',s).forEach(function(b){b.onclick=function(){
+    $$('.opt',s).forEach(function(x){x.classList.remove('sel')}); b.classList.add('sel');
+    ans[s.dataset.s]=+b.dataset.v; setTimeout(function(){show(cur+1)},260);
+  }});
+});
+function runLoading(){
+  var p=0, li=$$('#steps li'); li.forEach(function(l){l.classList.remove('ok')});
+  var t=setInterval(function(){p+=2; $('#ring').style.setProperty('--p',p); $('#ringN').textContent=p+'%';
+    li.forEach(function(l,i){ if(p>=(i+1)*19)l.classList.add('ok') });
+    if(p>=100){clearInterval(t); setTimeout(function(){buildResult(); show(cur+1)},400)} },110);
+}
+var PERFIS={
+ cozinha:{n:'Cozinha Aberta',d:'O seu belisco acontece porque a cozinha nunca fecha de verdade. O jantar acaba, mas a comida continua à vista e à mão até a hora de deitar.',s:['Belisca enquanto arruma a cozinha','Vai à geladeira "só pra ver" antes de deitar','Come o que sobrou do jantar'],f:[2,3]},
+ sofa:{n:'Belisco do Sofá',d:'O seu belisco acontece no piloto automático: cansaço, sofá, TV ou celular, e a mão vai sozinha até o pacote.',s:['Come vendo TV ou mexendo no celular','Nem percebe quanto comeu','A vontade aparece quando fica parada(o)'],f:[5,6]},
+ doce:{n:'Ciclo do Doce',d:'O seu belisco é quase sempre doce, e aperta mais depois de dias pesados. O doce vira a recompensa que fecha o dia.',s:['Vontade de doce depois do jantar','Pior depois de dias estressantes','"Só um pedacinho" que vira vários'],f:[2,6]},
+ tardio:{n:'Horário Tardio',d:'Você janta ou dorme tarde, e a noite acordada fica longa demais. Quanto mais tempo acordada(o) depois do jantar, mais espaço para o belisco.',s:['Janta tarde ou dorme depois das 23h','Fica acordada(o) muito tempo depois do jantar','Às vezes come de madrugada'],f:[1,7]}
+};
+var JANTAR=[18.5,19.5,20.5,21.5], DORMIR=[21.5,22.5,23.5,24.5];
+function hh(h){h=((h%24)+24)%24;var H=Math.floor(h),M=Math.round((h-H)*60);if(M===60){H=(H+1)%24;M=0}return H+'h'+(M?('0'+M).slice(-2):'')}
+function buildResult(){
+  var sc={cozinha:0,sofa:0,doce:0,tardio:0}, o=ans.onde, q=ans.oque, w=ans.quando;
+  if(o===0||o===2)sc.cozinha+=2; if(q===3)sc.cozinha+=1;
+  if(o===1)sc.sofa+=2; if(w===1)sc.sofa+=1; if(w===3)sc.sofa+=1;
+  if(q===0)sc.doce+=2; if(w===0)sc.doce+=1;
+  if(ans.jantar>=2)sc.tardio+=1; if(ans.jantar===3)sc.tardio+=1; if(ans.dormir>=2)sc.tardio+=1; if(w===2)sc.tardio+=1; if(o===3)sc.tardio+=2;
+  var k=Object.keys(sc).sort(function(a,b){return sc[b]-sc[a]})[0], P=PERFIS[k];
+  var J=JANTAR[ans.jantar], D=DORMIR[ans.dormir];
+  var corte=Math.min(J+1, D-2); if(corte<J+0.5)corte=J+0.5;
+  var fim=corte+12, acordado=Math.max(0,D-corte), sono=Math.max(0,Math.min(fim,D+8)-Math.max(corte,D)), manha=Math.max(0,12-acordado-sono);
+  $('#pNome').textContent=P.n; $('#pDesc').textContent=P.d;
+  $('#pSinais').innerHTML=P.s.map(function(x){return '<li>'+x+'</li>'}).join('');
+  $('#rCorte').textContent=hh(corte); $$('.corteTxt').forEach(function(e){e.textContent=hh(corte)});
+  $('#nA').style.flex=acordado; $('#nB').style.flex=sono; $('#nC').style.flex=manha||0.0001; if(!manha)$('#nC').textContent='';
+  $('#lA').textContent=hh(corte); $('#lB').textContent=hh(D); $('#lC').textContent=hh(fim);
+  $('#rSono').textContent=Math.round(sono)+' das 12 horas da sua janela acontecem enquanto você dorme. Sobram só '+(Math.round(acordado*2)/2).toString().replace('.',',')+' h acordada(o), logo depois do jantar.';
+  var f=ans.frequencia, n=['algumas','1 a 2','3 a 5','quase todas as'][f];
+  $('#rAlert').textContent=f>=2?'Você belisca depois do jantar em '+n+' noites da semana. Sem um roteiro para esse horário, a tendência é o hábito continuar igual.':'Mesmo beliscando pouco, ter um horário de corte evita que o hábito cresça nas semanas mais cansativas.';
+  $$('#passos li').forEach(function(li){li.classList.toggle('foco',P.f.indexOf(+li.dataset.p)>=0)});
+  ans.perfil=k; px('ViewContent',{content_name:'Protocolo Jejum Noturno',value:+C.PRECO,currency:'BRL'}); px('QuizFinalizado',{perfil:k});
+}
+function checkoutUrl(){
+  if(!C.CHECKOUT_URL)return '';
+  var u=new URL(C.CHECKOUT_URL), q=new URLSearchParams(location.search);
+  q.forEach(function(v,k){ if(!u.searchParams.has(k))u.searchParams.set(k,v) });
+  return u.toString();
+}
+function toast(t){var e=$('#toast');e.textContent=t;e.style.display='block';setTimeout(function(){e.style.display='none'},2600)}
+$$('.cta').forEach(function(a){a.addEventListener('click',function(ev){
+  ev.preventDefault(); var u=checkoutUrl();
+  if(!u){toast('Checkout ainda não configurado.');return}
+  location.href=u;
+})});
+})();
+</script>
+</body>
+</html>
